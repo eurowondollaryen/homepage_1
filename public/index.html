@@ -17,12 +17,34 @@
 			.footer_information{ color : white; }
 			.footer_menu1 {	color : white; }
 			.footer_menu2 {	color : white; }
+			.tabcontent {
+				display: none;
+			}
+
+			.bodyContent {
+				content:"";
+				clear: both;
+				overflow: hidden;
+				display: table;
+				margin-top: 0;
+				margin-right: 0 auto;
+				margin-bottom: 0;
+				margin-left: 0 auto;
+			}
+			#leftSideMenu {
+				float: left;
+				width: 25%;
+			}
+			#rightSideContent {
+				float: left;
+				width: 75%;
+			}
 		</style>
 
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding-top: 20px; padding-bottom : 20px;">
-		    	<a class="navbar-brand" href="index.html">로고 자리</a>
+		    	<a class="navbar-brand" href="./index.html">로고 자리</a>
 		    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 		        		<span class="navbar-toggler-icon"></span>
 		    		</button>
@@ -30,10 +52,10 @@
 	    	<div class="collapse navbar-collapse" id="navbarsExample03">
 	    		<ul class="navbar-nav mr-auto">
 	    			<li class="nav-item">
-	            	<a class="nav-link text-light" href="introduction.html"><strong>소개</strong><span class="sr-only">(current)</span></a>
+	            	<a class="nav-link text-light" href="#" onClick="loadPage('introduction')"><strong>소개</strong><span class="sr-only">(current)</span></a>
 			        </li>
 			        <li class="nav-item">
-			            <a class="nav-link text-light" href="products.html"><strong>Menu 2</strong></a>
+			            <a class="nav-link text-light" href="#"onClick="loadPage('products')"><strong>Menu 2</strong></a>
 			        </li>
 			        <li class="nav-item">
 			            <a class="nav-link text-light" href="#"><strong>Menu 3</strong></a>
@@ -42,8 +64,7 @@
 	      </div>
 	    </nav>
 	    <!-- 여기까지 내비게이션 바 코드 -->
-
-	    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-left bg-light-rounded">
+    	<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-left bg-light-rounded" id="mainpage">
 	      <div class="col-md-5 p-lg-5 mx-auto my-5">
 	        <h1 class="display-4 font-weight-normal">소개 제목</h1>
 	        <p class="lead font-weight-normal">설명 설명</p>
@@ -51,7 +72,56 @@
 	        <a class="btn btn-info" href="#">자세히 보기</a>
 	      </div>
 	    </div>
-	    <!-- 여기까지 메인 소개화면 코드 -->
+	    <!-- 여기까지 메인화면 코드 -->
+
+	    <div class="tabcontent" id="introduction">
+	    	<div style="background-color: skyblue;">
+		    	<p>
+		    		<br><br><br><br><br><br><br>
+		    	</p>
+		    </div>
+		    <!-- 여기까지 sheild 코드 -->
+
+		    <div class="container text-center">
+		    	<div class="row">
+		    		<div class="col-6">
+		    			<h5><strong>인사말 제목</strong></h5>
+		    			<hr>
+		    			<p>
+		    				내용<br>
+		    				내용<br>
+		    			</p>
+		    		</div>
+		    	</div>
+		    </div>
+
+		    <!-- Sheild 코드 -->
+	    </div>
+	    <!-- 여기까지 인사말 코드 -->
+
+	    <div class="tabcontent" id="products">
+	    	<div style="background-color: pink;">
+		    	<p>
+		    		<br><br><br><br><br><br><br>
+		    	</p>
+		    </div>
+
+		    <div class="bodyContent">
+		    	<div class="aside" id="leftSideMenu">
+					<ul class="list-group">
+						<li class="list-group-item">소개</li>
+						<li class="list-group-item">Menu 2</li>
+						<li class="list-group-item">Menu 3</li>
+					</ul>
+				</div>
+				<div class="subContent" id="rightSideContent">
+					lalala
+
+				</div>
+		    </div>
+	    </div>
+	    <!-- 여기까지 제품 코드 -->
+
 
 		<div class="footer bg-dark">
 			<div class="container py-5" style="margin:0 auto;">
@@ -80,5 +150,20 @@
 		    </div>
 		</div>
 		<!-- 여기까지 footer 코드 -->
+		<script>
+			function loadPage(id) {//맨위에 메뉴 누르면 페이지 로드하는 코드
+				var i, tabcontent;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				
+				for(i = 0; i < tabcontent.length; ++i) {
+					tabcontent[i].style.display = "none";
+				}
+				
+				document.getElementById("mainpage").style.display = "none";
+				document.getElementById(id).style.display = "block";
+			}
+
+
+		</script>
 	</body>
 </html>
