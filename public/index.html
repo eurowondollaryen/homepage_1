@@ -21,24 +21,94 @@
 				display: none;
 			}
 
+			#leftSideMenu ul {list-style: none; margin: 0; padding: 0;}
+			#leftSideMenu li {position: relative;}
+			#leftSideMenu ul ul {position: absolute; top: 0; left: 100%; width: 100%;}
+			#leftSideMenu ul ul {display: none;}
+			#leftSideMenu ul li:hover ul {display: block;}
+			/* Hover dropright Effect */
+			/* Reference from - http://webtrick101.blogspot.com/2010/12/drop-right-menu-simple-solution-using.html*/
+
 			.bodyContent {
+				/*
 				content:"";
-				clear: both;
 				overflow: hidden;
 				display: table;
+				width: 100%;
 				margin-top: 0;
 				margin-right: 0 auto;
-				margin-bottom: 0;
+				margin-bottom: 1rem;
 				margin-left: 0 auto;
+				*/
 			}
 			#leftSideMenu {
-				float: left;
+				display: inline-block;
 				width: 25%;
+				height: 100%
 			}
 			#rightSideContent {
-				float: left;
+				display: inline-block;
 				width: 75%;
+				height: 100%;
 			}
+
+			/* Underline From Left */
+			.hvr-underline-from-left {
+			  -o-transition:.5s;
+			  -ms-transition:.5s;
+			  -moz-transition:.5s;
+			  -webkit-transition:.5s;
+			  transition:.5s;
+			  /*color fade effect*/
+			  display: inline-block;
+			  vertical-align: middle;
+			  -webkit-transform: perspective(1px) translateZ(0);
+			  transform: perspective(1px) translateZ(0);
+			  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+			  position: relative;
+			  overflow: hidden;
+			}
+			.hvr-underline-from-left:before {
+			  content: "";
+			  position: absolute;
+			  z-index: -1;
+			  left: 0;
+			  right: 100%;
+			  bottom: 0;
+			  background: #2098D1;
+			  height: 4px;
+			  -webkit-transition-property: right;
+			  transition-property: right;
+			  -webkit-transition-duration: 0.3s;
+			  transition-duration: 0.3s;
+			  -webkit-transition-timing-function: ease-out;
+			  transition-timing-function: ease-out;
+			}
+			.hvr-underline-from-left:hover {
+				color: #blue;
+			}
+			.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+			  right: 0;
+			}
+
+			/* Forward */
+			.hvr-forward {
+			  display: inline-block;
+			  vertical-align: middle;
+			  -webkit-transform: perspective(1px) translateZ(0);
+			  transform: perspective(1px) translateZ(0);
+			  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+			  -webkit-transition-duration: 0.3s;
+			  transition-duration: 0.3s;
+			  -webkit-transition-property: transform;
+			  transition-property: transform;
+			}
+			.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+			  -webkit-transform: translateX(8px);
+			  transform: translateX(8px);
+			}
+
+
 		</style>
 
 	</head>
@@ -52,13 +122,13 @@
 	    	<div class="collapse navbar-collapse" id="navbarsExample03">
 	    		<ul class="navbar-nav mr-auto">
 	    			<li class="nav-item">
-	            	<a class="nav-link text-light" href="#" onClick="loadPage('introduction')"><strong>소개</strong><span class="sr-only">(current)</span></a>
+	            		<a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('introduction')"><strong>소개</strong><span class="sr-only">(current)</span></a>
 			        </li>
 			        <li class="nav-item">
-			            <a class="nav-link text-light" href="#"onClick="loadPage('products')"><strong>Menu 2</strong></a>
+			            <a class="nav-link hvr-underline-from-left" href="#"onClick="loadPage('products')"><strong>Product</strong></a>
 			        </li>
 			        <li class="nav-item">
-			            <a class="nav-link text-light" href="#"><strong>Menu 3</strong></a>
+			            <a class="nav-link hvr-underline-from-left" href="#"><strong>Menu 3</strong></a>
 			        </li>
 	        	</ul>
 	      </div>
@@ -106,17 +176,28 @@
 		    	</p>
 		    </div>
 
-		    <div class="bodyContent">
-		    	<div class="aside" id="leftSideMenu">
+		    <div class="bodyContent clear-fix">
+		    	<div class="container aside" id="leftSideMenu">
 					<ul class="list-group">
-						<li class="list-group-item">소개</li>
-						<li class="list-group-item">Menu 2</li>
-						<li class="list-group-item">Menu 3</li>
+						<li class="list-group-item hvr-forward"><a href="#">Product 1</a>
+							<!-- level 2 -->
+							<ul>
+								<li class="list-group-item hvr-forward"><a href="#" onClick="loadProduct('11')">Product 1-1</a></li>
+								<li class="list-group-item hvr-forward"><a href="#">Product 1-2</a></li>
+								<li class="list-group-item hvr-forward"><a href="#">Product 1-3</a></li>
+							</ul>
+						</li>
+
+						<li class="list-group-item hvr-forward"><a href="#">Product 2</a></li>
+						<li class="list-group-item hvr-forward"><a href="#">Product 3</a></li>
+						<li class="list-group-item hvr-forward"><a href="#">Product 4</a></li>
+						<li class="list-group-item hvr-forward"><a href="#">Product 5</a></li>
+
+						
 					</ul>
 				</div>
-				<div class="subContent" id="rightSideContent">
-					lalala
-
+				<div class="container subContent" id="rightSideContent">
+					<!-- 여기에 제품 선택 시 제품 스펙 출력-->
 				</div>
 		    </div>
 	    </div>
@@ -161,6 +242,10 @@
 				
 				document.getElementById("mainpage").style.display = "none";
 				document.getElementById(id).style.display = "block";
+			}
+
+			function loadProduct(productId) {// 제품 스펙 이미지를 띄워주는 함수
+				document.getElementById("rightSideContent").innerHTML = "<img src='" + productId + ".jpg' style='width:24rem; height:18rem; margon: 0 auto;'>";
 			}
 
 
