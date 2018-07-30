@@ -41,16 +41,6 @@
 				margin-left: 0 auto;
 				*/
 			}
-			#leftSideMenu {
-				display: inline-block;
-				width: 25%;
-				height: 100%
-			}
-			#rightSideContent {
-				display: inline-block;
-				width: 75%;
-				height: 100%;
-			}
 
 			/* Underline From Left */
 			.hvr-underline-from-left {
@@ -128,7 +118,7 @@
 			            <a class="nav-link hvr-underline-from-left" href="#"onClick="loadPage('products')"><strong>Product</strong></a>
 			        </li>
 			        <li class="nav-item">
-			            <a class="nav-link hvr-underline-from-left" href="#"><strong>Menu 3</strong></a>
+			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('visitPath')"><strong>오시는 길</strong></a>
 			        </li>
 	        	</ul>
 	      </div>
@@ -175,11 +165,13 @@
 		    		<br><br><br><br><br><br><br>
 		    	</p>
 		    </div>
+		    <div class="container" style="margin-left: 0;">
 
-		    <div class="bodyContent clear-fix">
-		    	<div class="container aside" id="leftSideMenu">
+		    <div class="row">
+		    	<div class="col-4" id="leftSideMenu">
+					<!-- 메뉴바 -->
 					<ul class="list-group">
-						<li class="list-group-item hvr-forward"><a href="#">Product 1</a>
+						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 1</strong></a>
 							<!-- level 2 -->
 							<ul>
 								<li class="list-group-item hvr-forward"><a href="#" onClick="loadProduct('11')">Product 1-1</a></li>
@@ -188,20 +180,30 @@
 							</ul>
 						</li>
 
-						<li class="list-group-item hvr-forward"><a href="#">Product 2</a></li>
-						<li class="list-group-item hvr-forward"><a href="#">Product 3</a></li>
-						<li class="list-group-item hvr-forward"><a href="#">Product 4</a></li>
-						<li class="list-group-item hvr-forward"><a href="#">Product 5</a></li>
-
-						
+						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 2</strong></a></li>
+						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 3</strong></a></li>
+						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 4</strong></a></li>
+						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 5</strong></a></li>
 					</ul>
+					<!-- 여기까지 메뉴바 -->
 				</div>
-				<div class="container subContent" id="rightSideContent">
+				<div class="col" id="rightSideContent">
+					
 					<!-- 여기에 제품 선택 시 제품 스펙 출력-->
 				</div>
 		    </div>
+			</div>
 	    </div>
 	    <!-- 여기까지 제품 코드 -->
+
+	    <div class="tabcontent" id="visitPath">
+	    	<div style="background-color: #17a2b8;">
+		    	<p>
+		    		<br><br><br><br><br><br><br>
+		    	</p>
+		    </div>
+	    </div>
+	    <!-- 여기까지 오시는 길 코드 -->
 
 
 		<div class="footer bg-dark">
@@ -245,7 +247,7 @@
 			}
 
 			function loadProduct(productId) {// 제품 스펙 이미지를 띄워주는 함수
-				document.getElementById("rightSideContent").innerHTML = "<img src='" + productId + ".jpg' style='width:24rem; height:18rem; margon: 0 auto;'>";
+				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;' src='" + productId + ".jpg' data-holder-rendered='true'><div class='card-body'><p class='card-text'>설명</p></div></div>";
 			}
 
 
