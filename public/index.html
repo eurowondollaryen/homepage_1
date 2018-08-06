@@ -27,7 +27,7 @@
 			function loadProduct(productId) {// 제품 스펙 이미지를 띄워주는 함수
 				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;' src='" + productId + ".jpg' data-holder-rendered='true'><div class='card-body'><p class='card-text'>설명</p></div></div>";
 			}
-			function regular_map() {
+			function regular_map() {//google map
 			    var var_location = new google.maps.LatLng(35.237941, 129.088194);
 			    var var_mapoptions = {
 			        center: var_location,
@@ -46,18 +46,29 @@
 			
 		</script>
 		<style type="text/css">
+			@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+			@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+			/*Jeju Gothic or Noto Sans KR or Nanum Gothic
+			*/
 			html {
 				height:100%;
 			}
 			body {
 				height:100%;
-				font-family: 'Nanum Gothic';
+				font-family: 'Noto Sans KR';
 			}
 			.footer_information{ color : white; }
 			.footer_menu1 {	color : white; }
 			.footer_menu2 {	color : white; }
 			.tabcontent {
 				display: none;
+			}
+			.box-shadow {/*product card effect*/
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    			transition: 0.3s;
+			}
+			.box-shadow:hover {
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 			}
 			#map-container {
 				width: 100%;
@@ -69,7 +80,12 @@
 			#leftSideMenu ul ul {display: none;}
 			#leftSideMenu ul li:hover ul {display: block;}
 			/* Hover dropright Effect */
+			#prds {color: black;}
 			/* Reference from - http://webtrick101.blogspot.com/2010/12/drop-right-menu-simple-solution-using.html*/
+			.route {
+				margin-left: 1rem;
+				margin-top: 1rem;
+			}
 			.bodyContent {
 				/*
 				content:"";
@@ -172,6 +188,9 @@
 	    <!-- 여기까지 메인화면 코드 -->
 
 	    <div class="tabcontent" id="introduction">
+	    	<div class="route">
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>소개</strong></p>
+	    	</div>
 	    	<div style="background-color: skyblue;">
 		    	<p>
 		    		<br><br><br><br><br><br>
@@ -193,49 +212,53 @@
 	    <!-- 여기까지 인사말 코드 -->
 
 	    <div class="tabcontent" id="products">
+	    	<div class="route">
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>Products</strong></p>
+	    	</div>
 	    	<div style="background-color: pink;">
 		    	<p>
 		    		<br><br><br><br><br><br>
 		    	</p>
 		    </div>
-		    <div class="container" style="margin-left: 0;">
+		    <div class="container" style="margin-left: 0; margin-bottom: 1rem;">
+			    <div class="row">
+			    	<div class="col-4" id="leftSideMenu">
+						<!-- 메뉴바 -->
+						<ul class="list-group">
+							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 1</strong></a>
+								<!-- level 2 -->
+								<ul class="list-group">
+									<li class="list-group-item hvr-forward"><a href="#" id="prds" onClick="loadProduct('11')">Product 1-1</a>
+									<li class="list-group-item hvr-forward"><a href="#" id="prds" onClick="loadProduct('12')">Product 1-2</a>
+									<li class="list-group-item hvr-forward"><a href="#" id="prds" onClick="loadProduct('13')">Product 1-3</a>
+								</ul>
+							</li>
 
-		    <div class="row">
-		    	<div class="col-4" id="leftSideMenu">
-					<!-- 메뉴바 -->
-					<ul class="list-group">
-						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 1</strong></a>
-							<!-- level 2 -->
-							<ul>
-								<li class="list-group-item hvr-forward"><a href="#" onClick="loadProduct('11')">Product 1-1</a>
-								<li class="list-group-item hvr-forward"><a href="#" onClick="loadProduct('12')">Product 1-2</a>
-								<li class="list-group-item hvr-forward"><a href="#" onClick="loadProduct('13')">Product 1-3</a>
-							</ul>
-						</li>
-
-						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 2</strong></a>
-							<ul>
-								<li class="list-group-item hvr-forward"><a href="#">Product 2-1</a>
-								<li class="list-group-item hvr-forward"><a href="#">Product 2-2</a>
-							</ul>
-
-						</li>
-						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 3</strong></a></li>
-						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 4</strong></a></li>
-						<li class="list-group-item hvr-forward"><a href="#"><strong>Product 5</strong></a></li>
-					</ul>
-					<!-- 여기까지 메뉴바 -->
-				</div>
-				<div class="col" id="rightSideContent">
-					
-					<!-- 여기에 제품 선택 시 제품 스펙 출력-->
-				</div>
-		    </div>
+							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong id="black">Product 2</strong></a>
+								<ul>
+									<li class="list-group-item hvr-forward"><a href="#" id="prds">Product 2-1</a>
+									<li class="list-group-item hvr-forward"><a href="#" id="prds">Product 2-2</a>
+								</ul>
+							</li>
+							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 3</strong></a></li>
+							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 4</strong></a></li>
+							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 5</strong></a></li>
+						</ul>
+						<!-- 여기까지 메뉴바 -->
+					</div>
+					<div class="col" id="rightSideContent">
+						
+						<!-- 여기에 제품 선택 시 제품 스펙 출력-->
+					</div>
+			    </div>
 			</div>
 	    </div>
 	    <!-- 여기까지 제품 코드 -->
 
 	    <div class="tabcontent" id="visitPath">
+	    	<div class="route">
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>오시는 길</strong></p>
+	    	</div>
 	    	<div style="background-color: #17a2b8;">
 		    	<p>
 		    		<br><br><br><br><br><br>
