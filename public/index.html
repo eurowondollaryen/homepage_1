@@ -78,7 +78,8 @@
 			#leftSideMenu li {position: relative;}
 			#leftSideMenu ul ul {position: absolute; top: 0; left: 100%; width: 100%;}
 			#leftSideMenu ul ul {display: none;}
-			#leftSideMenu ul li:hover ul {display: block;}
+			/*#leftSideMenu ul li:hover ul {display: block;}*/
+			#leftSideMenu li:hover > ul {display: block;}
 			/* Hover dropright Effect */
 			#prds {color: black;}
 			/* Reference from - http://webtrick101.blogspot.com/2010/12/drop-right-menu-simple-solution-using.html*/
@@ -129,9 +130,6 @@
 			  transition-duration: 0.3s;
 			  -webkit-transition-timing-function: ease-out;
 			  transition-timing-function: ease-out;
-			}
-			.hvr-underline-from-left:hover {
-				color: #blue;
 			}
 			.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
 			  right: 0;
@@ -225,24 +223,58 @@
 			    	<div class="col-4" id="leftSideMenu">
 						<!-- 메뉴바 -->
 						<ul class="list-group">
-							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 1</strong></a>
+							<li class="list-group-item hvr-forward">
+								<a href="#" id="prds"><strong>Sang-A</strong></a>
 								<!-- level 2 -->
 								<ul class="list-group">
-									<li class="list-group-item hvr-forward"><a href="#" id="prds" onClick="loadProduct('11')">Product 1-1</a>
-									<li class="list-group-item hvr-forward"><a href="#" id="prds" onClick="loadProduct('12')">Product 1-2</a>
-									<li class="list-group-item hvr-forward"><a href="#" id="prds" onClick="loadProduct('13')">Product 1-3</a>
+									<li class="list-group-item hvr-forward">
+										<a href="#" id="prds">One-Touch Fittings</a>
+										<ul class="list-group">
+											<li class="list-group-item" onClick="loadProduct(11)">PC</li>
+											<li class="list-group-item">PL</li>
+											<li class="list-group-item">PT</li>
+											<li class="list-group-item">PCF</li>
+											<li class="list-group-item">PWT</li>
+											<li class="list-group-item">PMF</li>
+											<li class="list-group-item">PLF</li>
+											<li class="list-group-item">PUC</li>
+											<li class="list-group-item">PUL</li>
+											<li class="list-group-item">PUT</li>
+											<li class="list-group-item">PY</li>
+											<li class="list-group-item">PG</li>
+											<li class="list-group-item">PUG</li>
+											<li class="list-group-item">PW</li>
+											<li class="list-group-item">PZA</li>
+											<li class="list-group-item">PMM</li>
+											<li class="list-group-item">PPM</li>
+											<li class="list-group-item">PCP</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward">
+										<a href="#" id="prds">Speed-Controllers</a>
+										<ul class="list-group">
+											<li class="list-group-item">NSE</li>
+											<li class="list-group-item">NSS</li>
+											<li class="list-group-item">NSF</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward">
+										<a href="#" id="prds">Ball Valves</a>
+									</li>
 								</ul>
 							</li>
 
-							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong id="black">Product 2</strong></a>
+							<li class="list-group-item hvr-forward">
+								<a href="#" id="prds"><strong id="black">Sekwang</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward"><a href="#" id="prds">Product 2-1</a>
-									<li class="list-group-item hvr-forward"><a href="#" id="prds">Product 2-2</a>
+									<li class="list-group-item hvr-forward">
+										<a href="#" id="prds">Sekwang1</a>
+									</li>
+									<li class="list-group-item hvr-forward">
+										<a href="#" id="prds">Sekwangwwwwwwwwwwwww2</a>
+									</li>
 								</ul>
 							</li>
-							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 3</strong></a></li>
-							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 4</strong></a></li>
-							<li class="list-group-item hvr-forward"><a href="#" id="prds"><strong>Product 5</strong></a></li>
 						</ul>
 						<!-- 여기까지 메뉴바 -->
 					</div>
