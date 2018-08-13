@@ -24,8 +24,8 @@
 				document.getElementById("mainpage").style.display = "none";
 				document.getElementById(id).style.display = "block";
 			}
-			function loadProduct(productName) {// 제품 스펙 이미지를 띄워주는 함수
-				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;' src='" + productName + "1.jpg' data-holder-rendered='true'><div class='card-body'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='" + productName + "2.jpg' data-holder-rendered='true'></div></div>";
+			function loadProduct(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
+				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + "1.jpg' data-holder-rendered='true'><div class='card-body'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + "2.jpg' data-holder-rendered='true'></div></div>";
 			}
 			function regular_map() {//google map
 			    var var_location = new google.maps.LatLng(35.237941, 129.088194);
@@ -80,6 +80,7 @@
 			#leftSideMenu ul ul {display: none;}
 			/*#leftSideMenu ul li:hover ul {display: block;}*/
 			#leftSideMenu li:hover > ul {display: block;}
+			#leftSideMenu li:hover {background-color: lightgray;}
 			/* Hover dropright Effect */
 			#prds {color: black;}
 			/* Reference from - http://webtrick101.blogspot.com/2010/12/drop-right-menu-simple-solution-using.html*/
@@ -230,7 +231,7 @@
 									<li class="list-group-item hvr-forward">
 										<a href="#" id="prds">One-Touch Fittings</a>
 										<ul class="list-group">
-											<li class="list-group-item" onClick="loadProduct('PC')">PC</li>
+											<li class="list-group-item">PC</li>
 											<li class="list-group-item">PL</li>
 											<li class="list-group-item">PT</li>
 											<li class="list-group-item">PCF</li>
@@ -267,109 +268,109 @@
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds"><strong id="black">Sekwang</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward">
-										<a href="#" id="prds">Byte Type Fittings</a>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Byte Type Fittings
 										<ul>
-											<li class="list-group-item" onClick="loadProduct('BMC')">BMC</li>
-											<li class="list-group-item" onClick="loadProduct('BOM')">BOM</li>
-											<li class="list-group-item" onClick="loadProduct('BFC')">BFC</li>
-											<li class="list-group-item" onClick="loadProduct('BLM')">BLM</li>
-											<li class="list-group-item">BLF</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BMC')">BMC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BOM')">BOM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BFC')">BFC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BLM')">BLM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BLF')">BLF</li>
 
-											<li class="list-group-item">BBTM</li>
-											<li class="list-group-item">BBTF</li>
-											<li class="list-group-item">BRTM</li>
-											<li class="list-group-item">BRTF</li>
-											<li class="list-group-item">BU</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BBTM')">BBTM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BBTF')">BBTF</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BRTM')">BRTM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BRTF')">BRTF</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BU')">BU</li>
 
-											<li class="list-group-item">BBU</li>
-											<li class="list-group-item">BBUW</li>
-											<li class="list-group-item">BL</li>
-											<li class="list-group-item">BT</li>
-											<li class="list-group-item">BC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BBU')">BBU</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BBUW')">BBUW</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BL')">BL</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BT')">BT</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BC')">BC</li>
 
-											<li class="list-group-item">BHUM</li>
-											<li class="list-group-item">BHUF</li>
-											<li class="list-group-item">BHLM</li>
-											<li class="list-group-item">BHLF</li>
-											<li class="list-group-item">BSLM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BHUM')">BHUM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BHUF')">BHUF</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BHLM')">BHLM</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BHLF')">BHLF</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BSLM')">BSLM</li>
 
-											<li class="list-group-item">BCW</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Byte Type Fittings','BCW')">BCW</li>
 										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:10rem;">
-										<a href="#" id="prds">Adapters</a>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Adapters
 										<ul>
-											<li class="list-group-item">SNA</li>
-											<li class="list-group-item">SNB</li>
-											<li class="list-group-item">SNC</li>
-											<li class="list-group-item">SND</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNA')">SNA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNB')">SNB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNC')">SNC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SND')">SND</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNE')">SNE</li>
 											
-											<li class="list-group-item">SBHU-U</li>
-											<li class="list-group-item">SBHU-G</li>
-											<li class="list-group-item">SNF</li>
-											<li class="list-group-item">SNG</li>
-											<li class="list-group-item">EWA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SBHU-U')">SBHU-U</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SBHU-G')">SBHU-G</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNF')">SNF</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNG')">SNG</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','EWA')">EWA</li>
 											
-											<li class="list-group-item">EWB</li>
-											<li class="list-group-item">EWC</li>
-											<li class="list-group-item">EWD</li>
-											<li class="list-group-item">ELA</li>
-											<li class="list-group-item">ELLA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','EWB')">EWB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','EWC')">EWC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','EWD')">EWD</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELA')">ELA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELLA')">ELLA</li>
 											
-											<li class="list-group-item">ELB</li>
-											<li class="list-group-item">ELLB</li>
-											<li class="list-group-item">ELC</li>
-											<li class="list-group-item">ELD</li>
-											<li class="list-group-item">ELE</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELB')">ELB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELLB')">ELLB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELC')">ELC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELD')">ELD</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELE')">ELE</li>
 											
-											<li class="list-group-item">UT</li>
-											<li class="list-group-item">RT</li>
-											<li class="list-group-item">MBT</li>
-											<li class="list-group-item">OBAE</li>
-											<li class="list-group-item">EOC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','UT')">UT</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','RT')">RT</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','MBT')">MBT</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','OBAE')">OBAE</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','EOC')">EOC</li>
 											
-											<li class="list-group-item">SMT-G</li>
-											<li class="list-group-item">SMT-U</li>
-											<li class="list-group-item">SNS</li>
-											<li class="list-group-item">SME-G</li>
-											<li class="list-group-item">SME-U</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SMT-G')">SMT-G</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SMT-U')">SMT-U</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SNS')">SNS</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SME-G')">SME-G</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','SME-U')">SME-U</li>
 											
-											<li class="list-group-item">ELS</li>
-											<li class="list-group-item">STS</li>
-											<li class="list-group-item">RTS</li>
-											<li class="list-group-item">BTS</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','ELS')">ELS</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','STS')">STS</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','RTS')">RTS</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Adapters','BTS')">BTS</li>
 										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:10rem;">
-										<a href="#" id="prds">Socket</a>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Socket
 										<ul>
-											<li class="list-group-item">LA</li>
-											<li class="list-group-item">TA</li>
-											<li class="list-group-item">FA</li>
-											<li class="list-group-item">FAB</li>
-											<li class="list-group-item">APA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','LA')">LA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','TA')">TA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','FA')">FA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','FAB')">FAB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','APA')">APA</li>
 											
-											<li class="list-group-item">HB</li>
-											<li class="list-group-item">HSA</li>
-											<li class="list-group-item">RSA</li>
-											<li class="list-group-item">SEL</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','HB')">HB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','HSA')">HSA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','RSA')">RSA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Socket','SEL')">SEL</li>
 										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:10rem;">
-										<a href="#" id="prds">Plug</a>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Plug
 										<ul>
-											<li class="list-group-item">PA</li>
-											<li class="list-group-item">PB</li>
-											<li class="list-group-item">PC</li>
-											<li class="list-group-item">SPA</li>
-											<li class="list-group-item">SPB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','PA')">PA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','PB')">PB</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','PC')">PC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','SPA')">SPA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','SPB')">SPB</li>
 											
-											<li class="list-group-item">SPC</li>
-											<li class="list-group-item">HP</li>
-											<li class="list-group-item">BPP</li>
-											<li class="list-group-item">HPA</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','SPC')">SPC</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','HP')">HP</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','BPP')">BPP</li>
+											<li class="list-group-item" onClick="loadProduct('Sekwang','Plug','HPA')">HPA</li>
 										</ul>
 									</li>
 								</ul>
