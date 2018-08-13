@@ -24,8 +24,8 @@
 				document.getElementById("mainpage").style.display = "none";
 				document.getElementById(id).style.display = "block";
 			}
-			function loadProduct(productId) {// 제품 스펙 이미지를 띄워주는 함수
-				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;' src='" + productId + ".jpg' data-holder-rendered='true'><div class='card-body'><p class='card-text'>설명</p></div></div>";
+			function loadProduct(productName) {// 제품 스펙 이미지를 띄워주는 함수
+				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;' src='" + productName + "1.jpg' data-holder-rendered='true'><div class='card-body'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='" + productName + "2.jpg' data-holder-rendered='true'></div></div>";
 			}
 			function regular_map() {//google map
 			    var var_location = new google.maps.LatLng(35.237941, 129.088194);
@@ -230,7 +230,7 @@
 									<li class="list-group-item hvr-forward">
 										<a href="#" id="prds">One-Touch Fittings</a>
 										<ul class="list-group">
-											<li class="list-group-item" onClick="loadProduct(11)">PC</li>
+											<li class="list-group-item" onClick="loadProduct('PC')">PC</li>
 											<li class="list-group-item">PL</li>
 											<li class="list-group-item">PT</li>
 											<li class="list-group-item">PCF</li>
@@ -268,10 +268,109 @@
 								<a href="#" id="prds"><strong id="black">Sekwang</strong></a>
 								<ul>
 									<li class="list-group-item hvr-forward">
-										<a href="#" id="prds">Sekwang1</a>
+										<a href="#" id="prds">Byte Type Fittings</a>
+										<ul>
+											<li class="list-group-item" onClick="loadProduct('BMC')">BMC</li>
+											<li class="list-group-item" onClick="loadProduct('BOM')">BOM</li>
+											<li class="list-group-item" onClick="loadProduct('BFC')">BFC</li>
+											<li class="list-group-item" onClick="loadProduct('BLM')">BLM</li>
+											<li class="list-group-item">BLF</li>
+
+											<li class="list-group-item">BBTM</li>
+											<li class="list-group-item">BBTF</li>
+											<li class="list-group-item">BRTM</li>
+											<li class="list-group-item">BRTF</li>
+											<li class="list-group-item">BU</li>
+
+											<li class="list-group-item">BBU</li>
+											<li class="list-group-item">BBUW</li>
+											<li class="list-group-item">BL</li>
+											<li class="list-group-item">BT</li>
+											<li class="list-group-item">BC</li>
+
+											<li class="list-group-item">BHUM</li>
+											<li class="list-group-item">BHUF</li>
+											<li class="list-group-item">BHLM</li>
+											<li class="list-group-item">BHLF</li>
+											<li class="list-group-item">BSLM</li>
+
+											<li class="list-group-item">BCW</li>
+										</ul>
 									</li>
-									<li class="list-group-item hvr-forward">
-										<a href="#" id="prds">Sekwangwwwwwwwwwwwww2</a>
+									<li class="list-group-item hvr-forward" style="width:10rem;">
+										<a href="#" id="prds">Adapters</a>
+										<ul>
+											<li class="list-group-item">SNA</li>
+											<li class="list-group-item">SNB</li>
+											<li class="list-group-item">SNC</li>
+											<li class="list-group-item">SND</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SBHU-U</li>
+											<li class="list-group-item">SBHU-G</li>
+											<li class="list-group-item">SNF</li>
+											<li class="list-group-item">SNG</li>
+											<li class="list-group-item">EWA</li>
+											
+											<li class="list-group-item">EWB</li>
+											<li class="list-group-item">EWC</li>
+											<li class="list-group-item">EWD</li>
+											<li class="list-group-item">ELA</li>
+											<li class="list-group-item">ELLA</li>
+											
+											<li class="list-group-item">ELB</li>
+											<li class="list-group-item">ELLB</li>
+											<li class="list-group-item">ELC</li>
+											<li class="list-group-item">ELD</li>
+											<li class="list-group-item">ELE</li>
+											
+											<li class="list-group-item">UT</li>
+											<li class="list-group-item">RT</li>
+											<li class="list-group-item">MBT</li>
+											<li class="list-group-item">OBAE</li>
+											<li class="list-group-item">EOC</li>
+											
+											<li class="list-group-item">SMT-G</li>
+											<li class="list-group-item">SMT-U</li>
+											<li class="list-group-item">SNS</li>
+											<li class="list-group-item">SME-G</li>
+											<li class="list-group-item">SME-U</li>
+											
+											<li class="list-group-item">ELS</li>
+											<li class="list-group-item">STS</li>
+											<li class="list-group-item">RTS</li>
+											<li class="list-group-item">BTS</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward" style="width:10rem;">
+										<a href="#" id="prds">Socket</a>
+										<ul>
+											<li class="list-group-item">LA</li>
+											<li class="list-group-item">TA</li>
+											<li class="list-group-item">FA</li>
+											<li class="list-group-item">FAB</li>
+											<li class="list-group-item">APA</li>
+											
+											<li class="list-group-item">HB</li>
+											<li class="list-group-item">HSA</li>
+											<li class="list-group-item">RSA</li>
+											<li class="list-group-item">SEL</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward" style="width:10rem;">
+										<a href="#" id="prds">Plug</a>
+										<ul>
+											<li class="list-group-item">PA</li>
+											<li class="list-group-item">PB</li>
+											<li class="list-group-item">PC</li>
+											<li class="list-group-item">SPA</li>
+											<li class="list-group-item">SPB</li>
+											
+											<li class="list-group-item">SPC</li>
+											<li class="list-group-item">HP</li>
+											<li class="list-group-item">BPP</li>
+											<li class="list-group-item">HPA</li>
+										</ul>
 									</li>
 								</ul>
 							</li>
