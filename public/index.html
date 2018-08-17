@@ -27,6 +27,9 @@
 			function loadProduct(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
 				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + "1.jpg' data-holder-rendered='true'><div class='card-body'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + "2.jpg' data-holder-rendered='true'></div></div>";
 			}
+			function loadProduct1(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
+				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + ".jpg' data-holder-rendered='true'><div class='card-body'></div></div>";
+			}
 			function regular_map() {//google map
 			    var var_location = new google.maps.LatLng(35.237941, 129.088194);
 			    var var_mapoptions = {
@@ -167,7 +170,7 @@
 	            		<a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('introduction')"><strong>소개</strong><span class="sr-only">(current)</span></a>
 			        </li>
 			        <li class="nav-item">
-			            <a class="nav-link hvr-underline-from-left" href="#"onClick="loadPage('products')"><strong>Product</strong></a>
+			            <a class="nav-link hvr-underline-from-left" href="#"onClick="loadPage('products')"><strong>제품소개</strong></a>
 			        </li>
 			        <li class="nav-item">
 			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('visitPath');"><strong>오시는 길</strong></a>
@@ -212,7 +215,7 @@
 
 	    <div class="tabcontent" id="products">
 	    	<div class="route">
-	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>Products</strong></p>
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>제품소개</strong></p>
 	    	</div>
 	    	<div style="background-color: pink;">
 		    	<p>
@@ -225,89 +228,117 @@
 						<!-- 메뉴바 -->
 						<ul class="list-group">
 							<li class="list-group-item hvr-forward">
-								<a href="#" id="prds"><strong>Sang-A</strong></a>
+								<a href="#" id="prds"><strong>Pneumatic Fittings</strong></a>
 								<!-- level 2 -->
 								<ul class="list-group">
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										One-Touch Fittings
 										<ul class="list-group">
-											<li class="list-group-item" onClick="loadProduct('SangA','OneTouchFittings','PC')">PC</li>
-											<li class="list-group-item">PL</li>
-											<li class="list-group-item">PT</li>
-											<li class="list-group-item">PCF</li>
-											<li class="list-group-item">PWT</li>
-											<li class="list-group-item">PMF</li>
-											<li class="list-group-item">PLF</li>
-											<li class="list-group-item">PUC</li>
-											<li class="list-group-item">PUL</li>
-											<li class="list-group-item">PUT</li>
-											<li class="list-group-item">PY</li>
-											<li class="list-group-item">PG</li>
-											<li class="list-group-item">PUG</li>
-											<li class="list-group-item">PW</li>
-											<li class="list-group-item">PZA</li>
-											<li class="list-group-item">PMM</li>
-											<li class="list-group-item">PPM</li>
-											<li class="list-group-item">PCP</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PC')">PC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PL')">PL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PT')">PT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PST')">PST</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PCF')">PCF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PWT')">PWT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PMF')">PMF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PLF')">PLF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUC')">PUC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUL')">PUL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUT')">PUT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PY')">PY</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PG')">PG</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUG')">PUG</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PW')">PW</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PZA')">PZA</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PMM')">PMM</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PPM')">PPM</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PCP')">PCP</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PP')">PP</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PPF')">PPF</li>
 										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Speed-Controllers
 										<ul class="list-group">
-											<li class="list-group-item">NSE</li>
-											<li class="list-group-item">NSS</li>
-											<li class="list-group-item">NSF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSE')">NSE</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSS')">NSS</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSF')">NSF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSL')">NSL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSP')">NSP</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Rotary Joints
+										<ul class="list-group">
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NRC')">NRC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NRL')">NRL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NHRC')">NHRC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NHRL')">NHRL</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Stop Fittings
+										<ul class="list-group">
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','StopFittings','SPC')">SPC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','StopFittings','SPU')">SPU</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','StopFittings','SPL')">SPL</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Check Valves
+										<ul class="list-group">
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','CheckValves','PCVC')">PCVC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','CheckValves','PCVF')">PCVF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','CheckValves','PCVU')">PCVU</li>
 										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Ball Valves
 										<ul>
-											<li class="list-group-item">BUC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BUC')">BUC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BUG')">BUG</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BL')">BL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BC')">BC</li>
 										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Hand Valves
 										<ul>
-											<li class="list-group-item">GHVSS</li>
-											<li class="list-group-item">GHVFS</li>
-											<li class="list-group-item">GHVFF</li>
-											<li class="list-group-item">GHVSF</li>
-										</ul>
-									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
-										Hand Slide Valves
-										<ul>
-											<li class="list-group-item">HSV(M)</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVSS')">HVSS</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVFS')">HVFS</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVFF')">HVFF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVSF')">HVSF</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HSV(M)')">HSV(M)</li>
 										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Two-Touch Fittings
 										<ul>
-											<li class="list-group-item">TC</li>
-											<li class="list-group-item">TL</li>
-											<li class="list-group-item">TUT</li>
-										</ul>
-									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
-										Insert Fitting
-										<ul>
-											<li class="list-group-item">IC</li>
-											<li class="list-group-item">IL</li>
-											<li class="list-group-item">IT</li>
-											<li class="list-group-item">IUC</li>
-											<li class="list-group-item">IUL</li>
-											<li class="list-group-item">IUT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','TC')">TC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','TL')">TL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','TUT')">TUT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IC')">IC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IL')">IL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IT')">IT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IUC')">IUC</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IUL')">IUL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IUT')">IUT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','INUT')">INUT</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IMS')">IMS</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','INS')">INS</li>
 										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Silencers
 										<ul>
-											<li class="list-group-item">ST</li>
-											<li class="list-group-item">ST(M)</li>
-											<li class="list-group-item">SL</li>
-											<li class="list-group-item">SM</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','ST')">ST</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','ST(M)')">ST(M)</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','SL')">SL</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','SM')">SM</li>
+											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','SBC')">SBC</li>
 										</ul>
 									</li>
+									<!--
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Polyurethane Tube
 										<ul>
@@ -322,9 +353,115 @@
 											<li class="list-group-item">N</li>
 										</ul>
 									</li>
+									-->
 								</ul>
 							</li>
+							<li class="list-group-item hvr-forward">
+								<a href="#" id="prds"><strong id="black">HydraulicFittings</strong></a>
+								<ul>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Bite Type Fittings
+										<ul>
+											<li class="list-group-item">BMC</li>
+											<li class="list-group-item">BLM</li>
+											<li class="list-group-item">BU</li>
+											<li class="list-group-item">BL</li>
+											<li class="list-group-item">BT</li>
 
+											<li class="list-group-item">BC</li>
+											<li class="list-group-item">BBU</li>
+											<li class="list-group-item">BOM</li>
+											<li class="list-group-item">BMC-G</li>
+											<li class="list-group-item">BOLM</li>
+
+											<li class="list-group-item">BSLM</li>
+											<li class="list-group-item">BBTM</li>
+											<li class="list-group-item">BRTM</li>
+											<li class="list-group-item">BFC</li>
+											<li class="list-group-item">BGC</li>
+
+											<li class="list-group-item">BLF</li>
+											<li class="list-group-item">BBTF</li>
+											<li class="list-group-item">BHUM</li>
+											<li class="list-group-item">BHUF</li>
+											<li class="list-group-item">BCW</li>
+
+											<li class="list-group-item">BBUW</li>
+											<li class="list-group-item">BA-R</li>
+											<li class="list-group-item">BR</li>
+											<li class="list-group-item">BLA</li>
+											<li class="list-group-item">BBTA</li>
+
+											<li class="list-group-item">BRTA</li>
+											<li class="list-group-item">BAP-2</li>
+										</ul>
+									</li>
+									<li class="list-group-item hvr-forward" style="width:12rem;">
+										Hydraulic Hose Fittings
+										<ul>
+											<li class="list-group-item">SNA</li>
+											<li class="list-group-item">SNB</li>
+											<li class="list-group-item">SNC</li>
+											<li class="list-group-item">SND</li>
+											<li class="list-group-item">SNE</li>
+
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNE</li>
+											
+										</ul>
+									</li>
+								</ul>
+							</li>
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds"><strong id="black">Sekwang</strong></a>
 								<ul>
@@ -496,7 +633,7 @@
 		        <div class="col-6 col-md">
 		          <ul class="list-unstyled text-small">
 		            <li><a class="text-light small" href="#" onClick="loadPage('introduction')" >소개</a></li>
-		            <li><a class="text-light small" href="#" onClick="loadPage('products')">제품</a></li>
+		            <li><a class="text-light small" href="#" onClick="loadPage('products')">제품소개</a></li>
 		            <li><a class="text-light small" href="#" onClick="loadPage('visitPath')">오시는 길</a></li>
 		          </ul>
 		        </div>
