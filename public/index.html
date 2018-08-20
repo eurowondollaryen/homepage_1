@@ -4,7 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!--모바일 호환성 코드-->
-		<title>homepage title</title>
+		<title>아스타테크</title>
+		<link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
 		<!-- 나눔고딕 폰트 include -->
@@ -20,7 +21,6 @@
 				for(i = 0; i < tabcontent.length; ++i) {
 					tabcontent[i].style.display = "none";
 				}
-				
 				document.getElementById("mainpage").style.display = "none";
 				document.getElementById(id).style.display = "block";
 			}
@@ -30,23 +30,9 @@
 			function loadProduct1(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
 				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'><img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + ".jpg' data-holder-rendered='true'><div class='card-body'></div></div>";
 			}
-			function regular_map() {//google map
-			    var var_location = new google.maps.LatLng(35.237941, 129.088194);
-			    var var_mapoptions = {
-			        center: var_location,
-			        zoom: 17
-			    };
-			    var var_map = new google.maps.Map(document.getElementById("map-container"),
-			        var_mapoptions);
-			    var var_marker = new google.maps.Marker({
-			        position: var_location,
-			        map: var_map,
-			        title: "New York"
-			    });
+			function loadIntro() {
+				document.getElementById("rightSideContent_intro").innerHTML = ""
 			}
-			// Initialize maps
-			google.maps.event.addDomListener(window, 'load', regular_map);
-			
 		</script>
 		<style type="text/css">
 			@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
@@ -73,10 +59,6 @@
 			.box-shadow:hover {
 				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 			}
-			#map-container {
-				width: 100%;
-		        height: 500px;
-			}
 			#leftSideMenu ul {list-style: none; margin: 0; padding: 0;}
 			#leftSideMenu li {position: relative;}
 			#leftSideMenu ul ul {position: absolute; top: 0; left: 100%; width: 100%;}
@@ -90,18 +72,6 @@
 			.route {
 				margin-left: 1rem;
 				margin-top: 1rem;
-			}
-			.bodyContent {
-				/*
-				content:"";
-				overflow: hidden;
-				display: table;
-				width: 100%;
-				margin-top: 0;
-				margin-right: 0 auto;
-				margin-bottom: 1rem;
-				margin-left: 0 auto;
-				*/
 			}
 			/* Underline From Left */
 			.hvr-underline-from-left {
@@ -154,12 +124,18 @@
 			  -webkit-transform: translateX(8px);
 			  transform: translateX(8px);
 			}
+			.logo {
+				width:9rem;
+			}
+			.logo_footer {
+				width: 15rem;
+			}
 		</style>
 
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm navbar-dark bg-dark" style="padding-top: 20px; padding-bottom : 20px;">
-		    	<a class="navbar-brand" href="./index.html">로고 자리</a>
+		    	<a class="navbar-brand" href="./index.html"><img class="logo" src="images/logo.png"></a>
 		    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 		        		<span class="navbar-toggler-icon"></span>
 		    		</button>
@@ -184,7 +160,7 @@
 	        <h1 class="display-4 font-weight-normal">소개 제목</h1>
 	        <p class="lead font-weight-normal">설명 설명</p>
 	        <br>
-	        <a class="btn btn-info" href="#">자세히 보기</a>
+	        <a class="btn btn-info" href="#" onClick="loadPage('introduction')">자세히 보기</a>
 	      </div>
 	    </div>
 	    <!-- 여기까지 메인화면 코드 -->
@@ -192,7 +168,6 @@
 	    <div class="tabcontent" id="introduction">
 	    	<div class="route">
 	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>회사소개</strong></p>
-	    		<!--여기 들어갈 것 : CEO인사말 회사연혁 오시는 길-->
 	    	</div>
 	    	<div style="background-color: skyblue;">
 		    	<p>
@@ -201,16 +176,29 @@
 		    </div>
 		    <!-- 여기까지 sheild 코드 -->
 
-		    <div class="container" style="width:100%;text-align: left;">
-    			<h5><strong>인사말 제목</strong></h5>
-    			<hr>
-    			<p>
-    				내용<br>
-    				내용<br>
-    			</p>
+		    <div class="container" style="margin-left: 0; margin-bottom: 1rem;">
+    			<div class="row">
+    				<div class="col-4" id="leftSideMenu">
+    					<ul class="list-group">
+    						<li class="list-group-item hvr-forward">
+    							<a href="#" id="prds" onClick="loadIntro();"><strong>CEO인사말</strong></a>
+    						</li>
+    						<li class="list-group-item hvr-forward">
+    							<a href="#" id="prds" onClick="loadIntro();"><strong>회사연혁</strong></a>
+    						</li>
+    						<li class="list-group-item hvr-forward">
+    							<a href="#" id="prds" onClick="loadIntro();"><strong>오시는 길</strong></a>
+    						</li>
+    					</ul>
+    				</div>
+
+    				<div class="col" id="rightSideContent_intro">
+						
+						<!-- 여기에 제품 선택 시 제품 스펙 출력-->
+					</div>
+    			</div>
 		    </div>
 
-		    <!-- Sheild 코드 -->
 	    </div>
 	    <!-- 여기까지 인사말 코드 -->
 
@@ -406,58 +394,58 @@
 											<li class="list-group-item">SND</li>
 											<li class="list-group-item">SNE</li>
 
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SBHU-U</li>
+											<li class="list-group-item">SBHU-G</li>
+											<li class="list-group-item">SNF</li>
+											<li class="list-group-item">SNF-G</li>
+											<li class="list-group-item">SNG</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">EWA</li>
+											<li class="list-group-item">EWB</li>
+											<li class="list-group-item">EWC</li>
+											<li class="list-group-item">EWD</li>
+											<li class="list-group-item">ELA</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">ELLA</li>
+											<li class="list-group-item">ELB</li>
+											<li class="list-group-item">ELLB</li>
+											<li class="list-group-item">ELC</li>
+											<li class="list-group-item">ELD</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">ELE</li>
+											<li class="list-group-item">UT</li>
+											<li class="list-group-item">RT</li>
+											<li class="list-group-item">MBT</li>
+											<li class="list-group-item">OBA</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">OBAE</li>
+											<li class="list-group-item">OBC</li>
+											<li class="list-group-item">EOC</li>
+											<li class="list-group-item">EWOA</li>
+											<li class="list-group-item">EWOB</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">EWOC</li>
+											<li class="list-group-item">ELOA</li>
+											<li class="list-group-item">ELOB</li>
+											<li class="list-group-item">ELOC</li>
+											<li class="list-group-item">SMT</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SNS</li>
+											<li class="list-group-item">SME</li>
+											<li class="list-group-item">ELS</li>
+											<li class="list-group-item">RTS</li>
+											<li class="list-group-item">BTS</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SCA</li>
+											<li class="list-group-item">SP</li>
+											<li class="list-group-item">PA</li>
+											<li class="list-group-item">PB</li>
+											<li class="list-group-item">PC</li>
 											
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
-											<li class="list-group-item">SNE</li>
+											<li class="list-group-item">SPA</li>
+											<li class="list-group-item">SPB</li>
+											<li class="list-group-item">SPC</li>
+											<li class="list-group-item">BPP</li>
 											
 										</ul>
 									</li>
@@ -753,19 +741,18 @@
 		    	</p>
 		    </div>
 		    <div class="container">
-		    	<div id="map-container" class="z-depth-1"></div>
+		    	<img src="images/route.png" style="width:100%; height:100%;">
 		    	<hr>
 		    	<div class="container" style="text-align: center;">
-		    		<h5><strong>주소</strong></h5>
-		    		<h5><strong>연락처/팩스</strong></h5>
-		    		<h5><strong>업무시간</strong></h5>
+		    		<h5><strong>주소</strong> 부산광역시 사상구 괘감로 37, 13동 126,127호 (괘법동, 산업용품유통상가)</h5>
+		    		<h5><strong>연락처/팩스</strong> 051-319-4878/051-319-4876</h5>
 		    		<hr>
 		    		<p>
 		    			<li>
-		    				<strong>지하철 </strong> 지하철 경로
+		    				<strong>지하철 </strong> 부산/김해경전철 괘법 르네시떼역에서 하차 후  도보 11분
 		    			</li>
 		    			<li>
-		    				<strong>자가용 </strong> 자가용 경로
+		    				<strong>버스 </strong> 77번 버스 - 산업용품유통상가에서 하차 후 도보 2분
 		    			</li>
 		    		</p>
 		    	</div>
@@ -780,7 +767,7 @@
 		        <div class="col-6 col-md">
 		        	<div class="footer_information small">
 			        	<p>
-			        		로고 자리
+			        		<img class="logo_footer" src="images/logo.png">
 			        		<!--<img src="images/logo.png" width="178" height="43.738">-->
 			        	</p>
 			        	<p><br>대표이사 <strong>고정훈</strong> ㅣE-mail <strong>astar2009@hanmail.net</strong><br>전화 <strong>051-319-4878</strong> ㅣ 팩스 <strong>051-319-4876</strong><br>주소 <strong>부산광역시 사상구 괘감로 37, 13동 126,127호 (괘법동, 산업용품유통상가)</strong></p>
