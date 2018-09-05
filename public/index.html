@@ -8,13 +8,10 @@
 		<link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="css/lightbox.css"/>
-		<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-		<!-- 나눔고딕 폰트 include -->
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/lightbox.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbwdso3PiyGcKTH7ZGcmGtBmk6Rdelufk"></script>
-		<!--google map api code-->
+		<script src="js/products.js"></script>
 		<script>
 			var currentProduct = "none";
 			function loadPage(id) {//맨위에 메뉴 누르면 페이지 로드하는 코드
@@ -28,24 +25,50 @@
 				document.getElementById(id).style.display = "block";
 				if(id=='introduction') loadIntro(1);
 			}
+			function loadAll(Company, Type, CompanyWithType, c) {//해당 타입의 모든 제품을 출력해주는 함수
+				console.log(CompanyWithType);
+				if(c == 1) {//이미지 1개짜리일 경우
+					var cont = "";
+					for(var i = 0; i < CompanyWithType.length; ++i) {
+						cont += ("<div class='card mb-4 box-shadow'>"
+						+ "<a class='imageWrap' href='/Products/" + Company + "/" + Type + "/" + CompanyWithType[i] + ".jpg' data-lightbox='imagetwo'>"
+						+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 225px; width: 100%; display: block;' src='/Products/" + Company + "/" + Type + "/" + CompanyWithType[i] + ".jpg' data-holder-rendered='true'>"
+						+ "<div class='overlay'>"
+						+ "<div class='text'>확대하기</div>"
+						+ "</div>"
+						+ "</a>"
+						+ "<div class='card-body'>"
+						+ "<a href='#' style='color:black;' onClick='loadProduct1(&apos;" + Company + "&apos;,&apos;" + Type + "&apos;,&apos;" + CompanyWithType[i] + "&apos;)'>" + CompanyWithType[i] + "</a>"
+						+ "</div></div>");
+					}
+					document.getElementById("rightSideContent").innerHTML = cont;
+				}
+				else {//이미지 2개짜리일 경우
+					for(var i = 0; i < CompanyWithType.length; ++i) {
+
+					}
+				}
+			}
 			function loadProduct(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
 				currentProduct = Name;
 				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'>"
-				+ "<a class='imageWrap' href='/" + Company + "/" + Type + "/" + Name + "1.jpg' data-lightbox='gallery'>"
-				+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='ImageNotExist' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + "1.jpg' data-holder-rendered='true'>"
+				+ "<a class='imageWrap' href='/Products/" + Company + "/" + Type + "/" + Name + "1.jpg' data-lightbox='gallery'>"
+				+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='ImageNotExist' style='height: 100%; width: 100%; display: block;' src='/Products/" + Company + "/" + Type + "/" + Name + "1.jpg' data-holder-rendered='true'>"
 				+ "</a>"
 				+ "<div class='card-body'>"
-				+ "<a class='imageWrap' href='/" + Company + "/" + Type + "/" + Name + "2.jpg' data-lightbox='gallery'>"
-				+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + "2.jpg' data-holder-rendered='true'>"
+				+ "<a class='imageWrap' href='/Products/" + Company + "/" + Type + "/" + Name + "2.jpg' data-lightbox='gallery'>"
+				+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/Products/" + Company + "/" + Type + "/" + Name + "2.jpg' data-holder-rendered='true'>"
 				+ "</a>"
 				+ "</div></div>";
 			}
-			function loadProduct1(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
+			function loadProduct1(Company, Type, Name) {// 제품 스펙 이미지를 하나만 띄워주는 함수
 				currentProduct = Name;
-				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow'>"
-				+ "<a class='imageWrap' href='/" + Company + "/" + Type + "/" + Name + ".jpg' data-lightbox='imagetwo'>"
-				+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/" + Company + "/" + Type + "/" + Name + ".jpg' data-holder-rendered='true'><div class='card-body'>"
+				document.getElementById("rightSideContent").innerHTML = "<div class='card mb-4 box-shadow' style='width:100%;'>"
+				+ "<a class='imageWrap' href='/Products/" + Company + "/" + Type + "/" + Name + ".jpg' data-lightbox='imagetwo'>"
+				+ "<img class='card-img-top' data-src='holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail' alt='Thumbnail [100%x225]' style='height: 100%; width: 100%; display: block;' src='/Products/" + Company + "/" + Type + "/" + Name + ".jpg' data-holder-rendered='true'>"
 				+ "</a>"
+				+ "<div class='card-body'>"
+				+ Name
 				+ "</div></div>";
 			}
 			function loadIntro(Intronum) {
@@ -67,16 +90,6 @@
 					+ "<dl>"
 					+ "<dt>2009</dt><dd>회사 설립</dd>"
 					+ "</dl></div>";
-				}
-				else if(Intronum == 3) {
-					document.getElementById("route").innerHTML = "<p>홈<span>&nbsp;>&nbsp;</span>회사소개<span>&nbsp;>&nbsp;</span><strong>오시는 길</strong></p>";
-					document.getElementById("rightSideContent_intro").innerHTML =
-					"<div class='container'>"
-					+ "<img class='box-shadow' src='images/route.png' style='width:100%; height:100%;'>"
-					+ "<hr><p>"
-					+ "<li><strong>지하철</strong> 부산/김해경전철 괘법 르네시떼역에서 하차 후 도보 2분</li>"
-					+ "<li><strong>버스 </strong> 77번 버스 - 산업용품유통상가에서 하차 후 도보 2분</li></p>"
-					+ "</div></div>";
 				} else {
 					alert('Error');
 				}
@@ -106,6 +119,18 @@
 			}
 			div li {
 				list-style-type: none;
+			}
+			div.card-body {
+				text-align: center;
+			}
+			div.card {
+				float: left;
+				width: 49.9999%;
+			}
+			@media only screen and (max-width: 500px) {
+				.card {
+					width: 100%;
+				}
 			}
 			.footer_information{ color : white; }
 			.footer_menu1 {	color : white; }
@@ -185,7 +210,6 @@
 			  -webkit-transform: translateX(8px);
 			  transform: translateX(8px);
 			}
-
 			.logo {
 				width:9rem;
 			}
@@ -195,10 +219,6 @@
 			.carousel-inner img {
 				width: 100%;
 				height: 100%;
-			}
-			.imageWrap:hover {
-				transform: scale(1.02);
-				box-shadow: 0 0 7px rgba(0,0,0,.5);
 			}
 			.sheild img{
 				width: 100%;
@@ -220,6 +240,29 @@
 			    color: #FFF;
 			    text-shadow: none;
 			}
+			/*제품 이미지 hover시 확대메시지 안내*/
+			.imageWrap .overlay {
+				width:100%;
+				height:100%;
+				position:absolute;
+				overflow:hidden;
+				top:0;
+				left:0;
+				opacity:0;
+				background-color:rgba(0,0,0,0.5);
+				-webkit-transition:all .4s ease-in-out;
+				transition:all .4s ease-in-out
+			}
+			.imageWrap:hover .overlay {
+				opacity:1;
+				filter:alpha(opacity=100);
+			}
+			.overlay div.text {
+				text-align: center;
+				margin-top: 50%;
+				color: white;
+			}
+
 		</style>
 
 	</head>
@@ -237,6 +280,9 @@
 			        </li>
 			        <li class="nav-item">
 			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('products')"><strong>제품소개</strong></a>
+			        </li>
+			        <li class="nav-item">
+			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('roadmap')"><strong>오시는 길</strong></a>
 			        </li>
 	        	</ul>
 	      </div>
@@ -294,9 +340,6 @@
     						<li class="list-group-item hvr-forward" onClick="loadIntro(2);">
     							<a href="#" id="prds"><strong>회사연혁</strong></a>
     						</li>
-    						<li class="list-group-item hvr-forward" onClick="loadIntro(3);">
-    							<a href="#" id="prds"><strong>오시는 길</strong></a>
-    						</li>
     					</ul>
     				</div>
     				<div class="col" id="rightSideContent_intro">
@@ -321,127 +364,39 @@
 								<a href="#" id="prds"><strong>Pneumatic Fittings</strong></a>
 								<!-- level 2 -->
 								<ul class="list-group">
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'OneTouchFittings', PneumaticFittings.OneTouchFittings, 1)"style="width:12rem;">
 										One-Touch Fittings
-										<ul class="list-group" id="OneTouchFittings">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PC')">PC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PL')">PL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PT')">PT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PST')">PST</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PCF')">PCF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PWT')">PWT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PMF')">PMF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PLF')">PLF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUC')">PUC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUL')">PUL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUT')">PUT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PY')">PY</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PG')">PG</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PUG')">PUG</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PW')">PW</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PZA')">PZA</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PMM')">PMM</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PPM')">PPM</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PCP')">PCP</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PP')">PP</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','OneTouchFittings','PPF')">PPF</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'SpeedControllers', PneumaticFittings.SpeedControllers, 1)" style="width:12rem;">
 										Speed-Controllers
-										<ul class="list-group" id="SpeedControllers">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSE')">NSE</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSS')">NSS</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSF')">NSF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSL')">NSL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','SpeedControllers','NSP')">NSP</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'RotaryJoints', PneumaticFittings.RotaryJoints, 1)" style="width:12rem;">
 										Rotary Joints
-										<ul class="list-group" id="RotaryJoints">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NRC')">NRC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NRL')">NRL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NHRC')">NHRC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','RotaryJoints','NHRL')">NHRL</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'StopFittings', PneumaticFittings.StopFittings, 1)" style="width:12rem;">
 										Stop Fittings
-										<ul class="list-group" id="StopFittings">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','StopFittings','SPC')">SPC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','StopFittings','SPU')">SPU</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','StopFittings','SPL')">SPL</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'CheckValves', PneumaticFittings.CheckValves, 1)" style="width:12rem;">
 										Check Valves
-										<ul class="list-group" id="CheckValves">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','CheckValves','PCVC')">PCVC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','CheckValves','PCVF')">PCVF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','CheckValves','PCVU')">PCVU</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'BallValves', PneumaticFittings.BallValves, 1)" style="width:12rem;">
 										Ball Valves
-										<ul id="BallValves">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BUC')">BUC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BUG')">BUG</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BL')">BL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','BallValves','BC')">BC</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'HandValves', PneumaticFittings.HandValves, 1)" style="width:12rem;">
 										Hand Valves
-										<ul id="HandValves">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVSS')">HVSS</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVFS')">HVFS</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVFF')">HVFF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HVSF')">HVSF</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','HandValves','HSV(M)')">HSV(M)</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'TwoTouchFittings', PneumaticFittings.TwoTouchFittings, 1)" style="width:12rem;">
 										Two-Touch Fittings
-										<ul id="TwoTouchFittings">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','TC')">TC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','TL')">TL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','TUT')">TUT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IC')">IC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IL')">IL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IT')">IT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IUC')">IUC</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IUL')">IUL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IUT')">IUT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','INUT')">INUT</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','IMS')">IMS</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','TwoTouchFittings','INS')">INS</li>
-										</ul>
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('PneumaticFittings', 'Silencers', PneumaticFittings.Silencers, 1)"style="width:12rem;">
 										Silencers
-										<ul id="Silencers">
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','ST')">ST</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','ST(M)')">ST(M)</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','SL')">SL</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','SM')">SM</li>
-											<li class="list-group-item" onClick="loadProduct1('PneumaticFittings','Silencers','SBC')">SBC</li>
-										</ul>
 									</li>
 									<!--
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Polyurethane Tube
-										<ul>
-											<li class="list-group-item">AC</li>
-											<li class="list-group-item">U</li>
-											<li class="list-group-item">UC</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Nylon Tube
-										<ul>
-											<li class="list-group-item">N</li>
-										</ul>
 									</li>
 									-->
 								</ul>
@@ -449,243 +404,20 @@
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds"><strong id="black">Hydraulic Fittings</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('HydraulicFittings', 'BiteTypeFittings', HydraulicFittings.BiteTypeFittings, 1)" style="width:12rem;">
 										Bite Type Fittings
-										<ul id="BiteTypeFittings">
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BMC')">BMC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BLM')">BLM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BU')">BU</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BL')">BL</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BT')">BT</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BC')">BC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BBU')">BBU</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BOM')">BOM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BMC-G')">BMC-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BOLM')">BOLM</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BSLM')">BSLM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BBTM')">BBTM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BRTM')">BRTM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BFC')">BFC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BGC')">BGC</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BLF')">BLF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BBTF')">BBTF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BHUM')">BHUM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BHUF')">BHUF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BCW')">BCW</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BBUW')">BBUW</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BA-R')">BA-R</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BR')">BR</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BLA')">BLA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BBTA')">BBTA</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BRTA')">BRTA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'BiteTypeFittings', 'BAP-2')">BAP-2</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Hydraulic Hose Fittings
-										<ul id="HydraulicHoseFittings">
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNA')">SNA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNB')">SNB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNC')">SNC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SND')">SND</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNE')">SNE</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SBHU-U')">SBHU-U</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SBHU-G')">SBHU-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNF')">SNF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNF-G')">SNF-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNG')">SNG</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWA')">EWA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWB')">EWB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWC')">EWC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWD')">EWD</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELA')">ELA</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELLA')">ELLA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELB')">ELB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELLB')">ELLB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELC')">ELC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELD')">ELD</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELE')">ELE</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'UT')">UT</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'RT')">RT</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'MBT')">MBT</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'OBA')">OBA</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'OBAE')">OBAE</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'OBC')">OBC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EOC')">EOC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWOA')">EWOA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWOB')">EWOB</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'EWOC')">EWOC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELOA')">ELOA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELOB')">ELOB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELOC')">ELOC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SMT-U')">SMT-U</li>
-
-											<!--EXCEPTION-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SMT-G')">SMT-G</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SNS')">SNS</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SME-U')">SME-U</li>
-											<!--EXCEPTION SMT랑 SME는 U랑 G버전으로 나뉘어져 있어서 둘 다 했음-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SME-G')">SME-G</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'ELS')">ELS</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'RTS')">RTS</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'BTS')">BTS</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SCA')">SCA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SP')">SP</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'PA')">PA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'PB')">PB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'PC')">PC</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SPA')">SPA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SPB')">SPB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'SPC')">SPC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicHoseFittings', 'BPP')">BPP</li>
-											
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Hydraulic Pipe Fittings
-										<ul id="HydraulicPipeFittings">
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWLA')">SWLA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWTA')">SWTA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWTB')">SWTB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWXA')">SWXA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWFC')">SWFC</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWHC')">SWHC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWRC')">SWRC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWBA')">SWBA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWCA')">SWCA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWUA')">SWUA</li>
-											<!--10-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWMC-R')">SWMC-R</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SWMC-G')">SWMC-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SLD')">SLD</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SLE')">SLE</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'STB')">STB</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SSB')">SSB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SLA')">SLA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SLB')">SLB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SLC')">SLC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'STA')">STA</li>
-											<!--20-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SFC')">SFC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SHC')">SHC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SRC')">SRC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SCA')">SCA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SSA')">SSA</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SSR')">SSR</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SBA')">SBA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SPA')">SPA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SPB')">SPB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SPC')">SPC</li>
-											<!--30-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SPD')">SPD</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SHB')">SHB</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'SUA')">SUA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'MFAA')">MFAA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'MFAB')">MFAB</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'MFAE')">MFAE</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'MFAC')">MFAC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'HydraulicPipeFittings', 'MFAD')">MFAD</li>
-											<!--38-->
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Lock Fittings
-										<ul id="LockFittings">
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CUA')">CUA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CUR')">CUR</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CLA')">CLA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CTA')">CTA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CXA')">CXA</li>
-											
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CBU')">CBU</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CMC-N')">CMC-N</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CMC-R')">CMC-R</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CMC-G')">CMC-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CLMA')">CLMA</li>
-											<!--10-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CRTM')">CRTM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CBTM')">CBTM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CFC')">CFC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CGC')">CGC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CBFC')">CBFC</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CLF')">CLF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CRTF')">CRTF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CBTF')">CBTF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CR')">CR</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CAL')">CAL</li>
-											<!--20-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CRTA')">CRTA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CBTA')">CBTA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CAM')">CAM</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CAF')">CAF</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CPA')">CPA</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CCA')">CCA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CI')">CI</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CIG')">CIG</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CN')">CN</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CFF')">CFF</li>
-											<!--30-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'LockFittings', 'CFB')">CFB</li>
-											<!--31-->
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Din Fittings
-										<ul id="DinFittings">
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HMC-R')">HMC-R</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HFC-G')">HFC-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HLM-RM')">HLM-R/M</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HU')">HU</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HUR')">HUR</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HBU')">HBU</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HL')">HL</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HT')">HT</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HC')">HC</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HOM-GED')">HOM-GED</li>
-											<!--10-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HRED')">HRED</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HEGE-G')">HEGE-G</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HUE')">HUE</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HEW')">HEW</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HET')">HET</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HEL')">HEL</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HR')">HR</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HKOR')">HKOR</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HAK')">HAK</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HSWVE-GM')">HSWVE-G/M</li>
-											<!--20-->
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HFAD-ED')">HFAD-ED</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HFAE-ED')">HFAE-ED</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HVKA')">HVKA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HCA')">HCA</li>
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HN')">HN</li>
-
-											<li class="list-group-item" onClick="loadProduct('HydraulicFittings', 'DinFittings', 'HS')">HS</li>
-											<!--26-->
-										</ul>
 									</li>
 								</ul>
 							</li>
@@ -694,95 +426,6 @@
 								<ul>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										기계부속 및 배관 부품
-										<ul id="MechPart">
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '1')">저압 너트(Compression Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '2')">단조 고압 너트(High Compression Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '3')">플레어 니플(Flare Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '4')">플레어 유니온(Flare Union)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '5')">플레어 엘보(Flare Elbow)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '6')">양 플레어 엘보(Equal Flare Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '7')">플레어 티이(Flare Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '8')">링 니플(Ring Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '9')">속 링 니플(Female Ring Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '10')">링 유니온(Ring Union)</li>
-											<!--10-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '11')">링 엘보(Ring Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '12')">양 링 엘보(Equal Ring Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '13')">링 티이(Ring Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '14')">M 링 티이(Male Ring Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '15')">호스 니플(Hose Nipple)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '16')">속 호스 니플(Female Hose Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '17')">호스 유니온(Hose Union)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '18')">호스 엘보(Hose Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '19')">호스 티이(Hose Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '20')">호스 Y(Hose Y)</li>
-											<!--20-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '21')">속 엘보(Elbow FxF)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '22')">속 티이(Tee FxFxF)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '23')">이경 티이(Reducing Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '24')">써비스 엘보(Elbow MxF)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '25')">45˚ 써비스 엘보(45˚ Elbow MxF)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '26')">크로스(Cross FxFxFxF)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '27')">PT 유니온(PT Union FxF)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '28')">PT 연결(PT Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '29')">소켓트(Socket)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '30')">붓싱(Bushing)</li>
-											<!--30-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '31')">플러그(Plug)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '32')">써비스 소켓(Service Socket)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '33')">양 PT 엘보(Equal PT Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '34')">산소심보(Oxygen Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '35')">산소, 질소 너트(Oxygen, Nitrogen Nut)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '36')">아세틸렌 니플, 너트(Acetylene Nipple, Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '37')">PT 캡 너트(PT Cap Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '38')">플레어 캡 너트(Flare Cap Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '39')">육각 단너트(Hex Half Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '40')">요꼬하마 사라니플(Yokohama Flare Nipple)</li>
-											<!--40-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '41')">요꼬하마 사라엘보(Yokohama Flare Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '42')">요꼬하마 사라티이(Yokohama Flare Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '43')">요꼬하마 카플러(Yokohama Coupler)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '44')">산소, 아세틸렌 절단기 니플(Oxygen, Acetylene Cutter Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '45')">산소, 아세틸렌 절단기 너트(Oxygen, Acetylene Cutter Nut)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '46')">절단기 호스 니플(Cutter Hose Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '47')">바이트 타입 링니플(BMC) - (Bite Type Ring Nipple)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '48')">바이트 타입 링유니온(BU) - (Bite Type Ring Union)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '49')">바이트 타입 링엘보(BLM) - (Bite Type Male Ring Elbow)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '50')">바이트 타입 양링엘보(BL) - (Bite Type Equal Ring Elbow)</li>
-											<!--50-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '51')">바이트 타입 링티(BT) - (Bite Type Ring Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '52')">바이트 타입 슬리브(BS), 너트(BN) - (Bite Type Sleeve, Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '53')">링타입 링그(Ring), 너트(Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '54')">분배기 플러그(Distributor Plug)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '55')">아답타 C x M(AdaPTer C x M)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '56')">아답타 C x F(AdaPTer C x F)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '57')">땜 엘보 C x F (Elbow C x F)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '58')">땜 엘보 C x M (Elbow C x M)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '59')">땜 티이 C x C x F (Tee C x C x F)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '60')">유니온 C x M(Union C x M)</li>
-											<!--60-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '61')">유니온 C x F(Union C x F)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '62')">플레어 니플-용접용 (Flare Nipple C x M)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '63')">플레어 엘보-용접용 (Flare Elbow C x M)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '64')">육각렌치 유니온, 너트(Hex Wrench Union, Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '65')">수도계량기 유니온, 너트 (Water Meter Union, Nut)</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '66')">가스계량기 유니온, 너트 (Gas Meter Union, Nut)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '67')">이형티이 (Branch Tee)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '68')">물탱크소켓(Water Tank Socket)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '69')">분사노즐(V-타입, 휠타입) - Injection Nozzle(V-Type, Wheel Type)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '70')">구리스니플(-자) - Grease Nipple(Straight)</li>
-											<!--70-->
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '71')">구리스니플(45˚) - Grease Nipple(45˚)</li>
-											<li class="list-group-item" onClick="loadProduct1('BrassFittings', 'MechPart', '72')">구리스니플(90˚) - Grease Nipple(90˚)</li>
-											
-										</ul>
 									</li>
 								</ul>
 							</li>
@@ -791,20 +434,9 @@
 								<ul>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Polyurethane Tube
-										<ul id="PolyurethaneTube">
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'PolyurethaneTube', '1')">Polyurethane Tube(상아)</li>
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'PolyurethaneTube', '2')">Polyurethane Tube(지산)</li>
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'PolyurethaneTube', '3')">Coil Tube(상아)</li>
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'PolyurethaneTube', '4')">Coil Tube(지산)</li>
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'PolyurethaneTube', '5')">Coil Tube(UC)</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Nylon Tube
-										<ul id="NylonTube">
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'NylonTube', '1')">Nylon Tube(상아)</li>
-											<li class="list-group-item" onClick="loadProduct1('Tube', 'NylonTube', '2')">Nylon Tube(지산)</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Seamless Tube
@@ -827,71 +459,18 @@
 								<ul>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Air Coupler
-										<ul id="AirCoupler">
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MHH')">MHH</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MHM')">MHM</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MHF')">MHF</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MHN-S')">MHN-S</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MCH')">MCH</li>
-
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MCM')">MCM</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MCF')">MCF</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MCN-S')">MCN-S</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MLY')">MLY</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MLW')">MLW</li>
-											<!--10-->
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'AirCoupler', 'MLR')">MLR</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Mold Coupler
-										<ul id="MoldCoupler">
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'MoldCoupler', 'KHH')">KHH</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'MoldCoupler', 'KHM')">KHM</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'MoldCoupler', 'KHF')">KHF</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'MoldCoupler', 'KCH')">KCH</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'MoldCoupler', 'KCM')">KCM</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'MoldCoupler', 'KCF')">KCF</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										KN Coupler
-										<ul id="KNCoupler">
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 20')">SERISE 20</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 30')">SERISE 30</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 40')">SERISE 40</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 300')">SERISE 300</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 500')">SERISE 500</li>
-
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 900C')">SERISE 900C</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 900X')">SERISE 900X</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SERISE 900')">SERISE 900</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SAFETY SERISE')">SAFETY SERISE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', '역화방지기')">역화방지기</li>
-											<!--10-->
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SPECIAL1')">SPECIAL ITEM</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'SPECIAL2')">SPECIAL ITEM</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'NIPPLE')">NIPPLE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'HI-NIPPLE')">HI-NIPPLE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'MANIFOLD1')">MANIFOLD1</li>
-											
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'MANIFOLD2')">MANIFOLD2</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'KNCoupler', 'WORKING LINE')">WORKING LINE</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Hydraulic Coupler
-										<ul id="HydraulicCoupler">
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'HydraulicCoupler', 'KCA')">FASTER TYPE(KCA)</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'HydraulicCoupler', 'KCN')">NITTO TYPE(KCN)</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										SP Coupler
-										<ul id="SPCoupler">
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'SPCoupler', 'KCB')">KCB</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										TSP Coupler
@@ -901,17 +480,6 @@
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Cam Lock
-										<ul id="CamLock">
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'C-TYPE')">C-TYPE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'B-TYPE')">B-TYPE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'D-TYPE')">D-TYPE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'DC-TYPE')">DC-TYPE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'E-TYPE')">E-TYPE</li>
-
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'F-TYPE')">F-TYPE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'A-TYPE')">A-TYPE</li>
-											<li class="list-group-item" onClick="loadProduct1('Coupler', 'CamLock', 'DP-TYPE')">DP-TYPE</li>
-										</ul>
 									</li>
 								</ul>
 							</li>
@@ -920,27 +488,15 @@
 								<ul>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Hose Band
-										<ul id="HoseBand">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Breeze Band
-										<ul id="BreezeBand">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										High Pressure Band
-										<ul id="HighPressureBand">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Pipe Clamp
-										<ul id="PipeClamp">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 								</ul>
 							</li>
@@ -949,21 +505,12 @@
 								<ul>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										Air Grinder
-										<ul id="AirGrinder">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										용접자재
-										<ul id="Wield">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 									<li class="list-group-item hvr-forward" style="width:12rem;">
 										에어건
-										<ul id="AirGun">
-											<li class="list-group-item">Content</li>
-										</ul>
 									</li>
 								</ul>
 							</li>
@@ -977,6 +524,22 @@
 			</div>
 	    </div>
 	    <!-- 여기까지 제품 코드 -->
+
+	    <div class="tabcontent" id="roadmap">
+	    	<div class="route" id="route">
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>오시는 길</strong></p>
+	    	</div>
+	    	<div class="sheild"><img src="images/sheild1.jpg"></div>
+
+		    <div class="container" style="margin-bottom: 1rem;">
+    			<img class="box-shadow" src="images/route.png" style="width:75%;">
+    			<hr>
+    			<p class="center"><strong>주소 </strong> 부산광역시 사상구 괘감로 37, 13동 126,127호 (괘법동, 산업용품유통상가)</p>
+		    </div>
+		</div>
+		<!--여기까지 오시는 길 코드-->
+
+
 	    <!--여기서부터 footer-->
 		<div class="footer bg-dark">
 			<div class="container py-5" style="margin:0 auto;">
@@ -997,6 +560,7 @@
 		          <ul class="list-unstyled text-small">
 		            <li><a class="text-light small" href="#" onClick="loadPage('introduction')" >회사소개</a></li>
 		            <li><a class="text-light small" href="#" onClick="loadPage('products')">제품소개</a></li>
+		            <li><a class="text-light small" href="#" onClick="loadPage('roadmap')">오시는 길</a></li>
 		          </ul>
 		        </div>
 		      </div>
