@@ -12,16 +12,19 @@ var PneumaticFittings = {
 	Silencers: ["ST", "ST(M)", "SL", "SM", "SBC"]
 };
 
-var HydraulicFittings = {//첫번째거 BMC => BMC-R
+//첫번째거 BMC => BMC-R
+//HydraulicHoseFittings 안에 smtu smtg smeu smeg로
+//HydraulicPipeFittings에서 SWTB 없어서 SWLB로
+var HydraulicFittings = {
 	BiteTypeFittings: ["BMC-R", "BLM", "BU", "BL", "BT", "BC", "BBU", "BOM", "BMC-G", "BOLM",
 	"BSLM", "BBTM", "BRTM", "BFC", "BGC", "BLF", "BBTF", "BHUM", "BHUF", "BCW",
 	"BBUW", "BA-R", "BR", "BLA", "BBTA", "BRTA", "BAP-2"],
 	HydraulicHoseFittings: ["SNA", "SNB", "SNC", "SND", "SNE", "SBHU-U", "SBHU-G", "SNF", "SNF-G", "SNG",
 	"EWA", "EWB", "EWC", "EWD", "ELA", "ELLA", "ELB", "ELLB", "ELC", "ELD",
 	"ELE", "UT", "RT", "MBT", "OBA", "OBAE", "OBC", "EOC", "EWOA", "EWOB",
-	"EWOC", "ELOA", "ELOB", "ELOC", "SMT", "SNS", "SME", "ELS", "RTS", "BTS",
+	"EWOC", "ELOA", "ELOB", "ELOC", "SMT-U", "SMT-G", "SNS", "SME-U", "SME-G", "ELS", "RTS", "BTS",
 	"SCA", "SP", "PA", "PB", "PC", "SPA", "SPB", "SPC", "BPP"],
-	HydraulicPipeFittings: ["SWLA", "SWTA", "SWTB", "SWXA", "SWFC", "SWHC", "SWRC", "SWBA", "SWCA", "SWUA",
+	HydraulicPipeFittings: ["SWLA", "SWTA", "SWLB", "SWXA", "SWFC", "SWHC", "SWRC", "SWBA", "SWCA", "SWUA",
 	"SWMC-R", "SWMC-G", "SLD", "SLE", "STB", "SSB", "SLA", "SLB", "SLC", "STA",
 	"SFC", "SHC", "SRC", "SCA", "SSA", "SSR", "SBA", "SPA", "SPB", "SPC",
 	"SPD", "SHB", "SUA", "MFAA", "MFAB", "MFAE", "MFAC", "MFAD"],

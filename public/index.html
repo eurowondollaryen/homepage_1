@@ -59,7 +59,7 @@
 					var cont = "";
 					cont += "<div class='container'>"
 					+ "<hr>"
-					+ "<h3 style='text-align:center;'> 해당 카테고리의 제품이 존재하지 않습니다. </h3>"
+					+ "<h4 style='text-align:center;'> 해당 카테고리의 제품이 존재하지 않습니다. </h4>"
 					+ "<hr>"
 					+ "</div>"
 					document.getElementById("rightSideContent").innerHTML = cont;
@@ -236,10 +236,16 @@
 				width: 100%;
 				height: 100%;
 			}
-			.sheild img{
-				width: 100%;
-				height: 8rem;
-				margin-bottom: 1rem;
+			.sheild{
+				background-image: url("/images/source.jpg");
+				min-height: 210px;
+
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+
+				margin-bottom: 2rem;
 			}
 			::selection {
 			    background: black;
@@ -344,7 +350,7 @@
 	    	<div class="route" id="route">
 	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>회사소개</strong></p>
 	    	</div>
-	    	<div class="sheild"><img src="images/sheild1.jpg"></div>
+	    	<div class="sheild"></div>
 
 		    <div class="container" style="margin-left: 0; margin-bottom: 1rem;">
     			<div class="row">
@@ -370,7 +376,7 @@
 	    	<div class="route" id="route">
 	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>제품소개</strong></p>
 	    	</div>
-	    	<div class="sheild"><img src="images/sheild2.jpg"></div>
+	    	<div class="sheild"></div>
 		    <div class="container" style="margin-left: 0; margin-bottom: 1rem;">
 			    <div class="row">
 			    	<div class="col-4" id="leftSideMenu">
@@ -423,16 +429,16 @@
 									<li class="list-group-item hvr-forward" onClick="loadAll('HydraulicFittings', 'BiteTypeFittings', HydraulicFittings.BiteTypeFittings, 1)" style="width:12rem;">
 										Bite Type Fittings
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('HydraulicFittings', 'HydraulicHoseFittings', HydraulicFittings.HydraulicHoseFittings, 1)" style="width:12rem;">
 										Hydraulic Hose Fittings
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('HydraulicFittings', 'HydraulicPipeFittings', HydraulicFittings.HydraulicPipeFittings, 1)" style="width:12rem;">
 										Hydraulic Pipe Fittings
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('HydraulicFittings', 'LockFittings', HydraulicFittings.LockFittings, 1)" style="width:12rem;">
 										Lock Fittings
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('HydraulicFittings', 'DinFittings', HydraulicFittings.DinFittings, 1)" style="width:12rem;">
 										Din Fittings
 									</li>
 								</ul>
@@ -545,7 +551,7 @@
 	    	<div class="route" id="route">
 	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>오시는 길</strong></p>
 	    	</div>
-	    	<div class="sheild"><img src="images/sheild1.jpg"></div>
+	    	<div class="sheild"></div>
 
 		    <div class="container" style="margin-bottom: 1rem;">
     			<img class="box-shadow" src="images/route.png" style="width:75%;">
@@ -574,7 +580,7 @@
 		        
 		        <div class="col-6 col-md">
 		          <ul class="list-unstyled text-small">
-		            <li><a class="text-light small" href="#" onClick="loadPage('introduction')" >회사소개</a></li>
+		            <li><a class="text-light small" href="#" onClick="loadPage('introduction')">회사소개</a></li>
 		            <li><a class="text-light small" href="#" onClick="loadPage('products')">제품소개</a></li>
 		            <li><a class="text-light small" href="#" onClick="loadPage('roadmap')">오시는 길</a></li>
 		          </ul>
