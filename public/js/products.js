@@ -39,8 +39,8 @@ var BrassFittings = {
 };//기계부속은 숫자로 카운트
 
 var Tube = {
-	PolyurethaneTube: [],
-	NylonTube: [],
+	PolyurethaneTube: ["Polyurethane Tube(상아)", "Polyurethane Tube(지산)", "Coil Tube(상아)", "Coil Tube(지산)", "Coil Tube(UC)"],
+	NylonTube: ["Nylon Tube(상아)", "Nylon Tube(지산)"],
 	SeamlessTube: [],
 	CopperTube: []
 
@@ -65,8 +65,8 @@ var Clamps = {
 	PipeClamp: ["HEAVY TYPE", "STANDARD TYPE", "MULTILINE TYPE1", "MULTILINE TYPE2", "FIX CLAMPS"]
 };
 
-var AnythingElse = {
-	AirGrinder: [],
+var Etc = {
+	AirGrinder: ["다이그라인더", "4앵글그라인더", "7앵글그라인더(경량)", "7앵글그라인더", "AS용 순정부품"],
 	Wielding: [],
 	AirGun: []
 };

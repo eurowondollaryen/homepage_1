@@ -14,6 +14,11 @@
 		<script src="js/products.js"></script>
 		<script>
 			var currentProduct = "none";
+			for(var i = 0; i < 72; ++i) {
+				BrassFittings.MechPart.push((i+1).toString());
+			}//기계부속은 이름이 파일명으로 하기 난해해서 숫자로 했기 때문에 숫자로 initialization
+			/*위 코드 건드리지 말 것*/
+
 			function loadPage(id) {//맨위에 메뉴 누르면 페이지 로드하는 코드
 				var i, tabcontent;
 				tabcontent = document.getElementsByClassName("tabcontent");
@@ -37,9 +42,10 @@
 						+ "<div class='text'>확대하기</div>"
 						+ "</div>"
 						+ "</a>"
+						+ "<a href='#' style='color:black;' onClick='loadProduct1(&apos;" + Company + "&apos;,&apos;" + Type + "&apos;,&apos;" + CompanyWithType[i] + "&apos;)'>"
 						+ "<div class='card-body'>"
-						+ "<a href='#' style='color:black;' onClick='loadProduct1(&apos;" + Company + "&apos;,&apos;" + Type + "&apos;,&apos;" + CompanyWithType[i] + "&apos;)'>" + CompanyWithType[i] + "</a>"
-						+ "</div></div>");
+						+ CompanyWithType[i]
+						+ "</div></a></div>");
 					}
 					document.getElementById("rightSideContent").innerHTML = cont;
 				}
@@ -47,6 +53,16 @@
 					for(var i = 0; i < CompanyWithType.length; ++i) {
 
 					}
+				}
+
+				if(CompanyWithType.length == 0) {//product객체에 제품이 없을 경우
+					var cont = "";
+					cont += "<div class='container'>"
+					+ "<hr>"
+					+ "<h3 style='text-align:center;'> 해당 카테고리의 제품이 존재하지 않습니다. </h3>"
+					+ "<hr>"
+					+ "</div>"
+					document.getElementById("rightSideContent").innerHTML = cont;
 				}
 			}
 			function loadProduct(Company, Type, Name) {// 제품 스펙 이미지를 띄워주는 함수
@@ -424,7 +440,7 @@
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds"><strong id="black">Brass Fittings</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('BrassFittings', 'MechPart', BrassFittings.MechPart, 1)" style="width:12rem;">
 										기계부속 및 배관 부품
 									</li>
 								</ul>
@@ -432,20 +448,20 @@
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds"><strong id="black">Tube</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Tube', 'PolyurethaneTube', Tube.PolyurethaneTube, 1)" style="width:12rem;">
 										Polyurethane Tube
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Tube', 'NylonTube', Tube.NylonTube, 1)" style="width:12rem;">
 										Nylon Tube
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Tube', 'SeamlessTube', Tube.SeamlessTube, 1)" style="width:12rem;">
 										Seamless Tube
 										<!--use this code when you need to add products!-->
 										<!--<ul>
 											<li class="list-group-item">Content</li>
 										</ul>-->
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Tube', 'CopperTube', Tube.CopperTube, 1)" style="width:12rem;">
 										Copper Tube
 										<!--use this code when you need to add products!-->
 										<!--<ul>
@@ -460,25 +476,25 @@
 									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'AirCoupler', Coupler.AirCoupler, 1)" style="width:12rem;">
 										Air Coupler
 									</li>
-									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'MoldCoupler', Coupler.AirCoupler, 1)" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'MoldCoupler', Coupler.MoldCoupler, 1)" style="width:12rem;">
 										Mold Coupler
 									</li>
-									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'AirCoupler', Coupler.KNCoupler, 1)" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'KNCoupler', Coupler.KNCoupler, 1)" style="width:12rem;">
 										KN Coupler
 									</li>
-									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'AirCoupler', Coupler.HydraulicCoupler, 1)" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'HydraulicCoupler', Coupler.HydraulicCoupler, 1)" style="width:12rem;">
 										Hydraulic Coupler
 									</li>
-									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'AirCoupler', Coupler.SPCoupler, 1)" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'SPCoupler', Coupler.SPCoupler, 1)" style="width:12rem;">
 										SP Coupler
 									</li>
-									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'AirCoupler', Coupler.TSPCoupler, 1)" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'TSPCoupler', Coupler.TSPCoupler, 1)" style="width:12rem;">
 										TSP Coupler
 										<!--<ul>
 											<li class="list-group-item">Content</li>
 										</ul>-->
 									</li>
-									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'AirCoupler', Coupler.CamLock, 1)" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Coupler', 'CamLock', Coupler.CamLock, 1)" style="width:12rem;">
 										Cam Lock
 									</li>
 								</ul>
@@ -486,16 +502,16 @@
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds"><strong id="black">Clamps</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Clamps', 'HoseBand', Clamps.HoseBand, 1)" style="width:12rem;">
 										Hose Band
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Clamps', 'BreezeBand', Clamps.BreezeBand, 1)" style="width:12rem;">
 										Breeze Band
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Clamps', 'HighPressureBand', Clamps.HighPressureBand, 1)" style="width:12rem;">
 										High Pressure Band
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Clamps', 'PipeClamp', Clamps.PipeClamp, 1)" style="width:12rem;">
 										Pipe Clamp
 									</li>
 								</ul>
@@ -503,13 +519,13 @@
 							<li class="list-group-item hvr-forward">
 								<a href="#" id="prds" onclick="showCatalog();"><strong id="black">기타</strong></a>
 								<ul>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Etc', 'AirGrinder', Etc.AirGrinder, 1)" style="width:12rem;">
 										Air Grinder
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Etc', 'Wielding', Etc.Wielding, 1)" style="width:12rem;">
 										용접자재
 									</li>
-									<li class="list-group-item hvr-forward" style="width:12rem;">
+									<li class="list-group-item hvr-forward" onClick="loadAll('Etc', 'AirGun', Etc.AirGun, 1)" style="width:12rem;">
 										에어건
 									</li>
 								</ul>

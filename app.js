@@ -2,12 +2,12 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var path = require('path');
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname,'public')));
 //port set
 app.listen(port,function(){
-           console.log('Server Start.');
+           console.log('Server is running on  port ' + port);
 });
 
 //routing set
