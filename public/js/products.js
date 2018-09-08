@@ -42,8 +42,8 @@ var BrassFittings = {
 };//기계부속은 숫자로 카운트
 
 var Tube = {
-	PolyurethaneTube: ["Polyurethane Tube(상아)", "Polyurethane Tube(지산)", "Coil Tube(상아)", "Coil Tube(지산)", "Coil Tube(UC)"],
-	NylonTube: ["Nylon Tube(상아)", "Nylon Tube(지산)"],
+	PolyurethaneTube: ["Polyurethane TubeSA", "Polyurethane TubeJS", "Coil TubeSA", "Coil TubeJS", "Coil TubeUC"],
+	NylonTube: ["Nylon TubeSA", "Nylon TubeJS"],
 	SeamlessTube: [],
 	CopperTube: []
 
@@ -53,12 +53,12 @@ var Coupler = {
 	AirCoupler: ["MHH", "MHM", "MHF", "MHN-S", "MCH", "MCM", "MCF", "MCN-S", "MLY", "MLW",
 	"MLR"],
 	MoldCoupler: ["KHH", "KHM", "KHF", "KCH", "KCM", "KCF"],
-	KNCoupler: ["SERISE 20", "SERISE 30", "SERISE 40", "SERISE 300", "SERISE 500", "SERISE 900C", "SERISE 900X", "SERISE 900", "SAFETY SERISE", "역화방지기",
+	KNCoupler: ["SERISE 20", "SERISE 30", "SERISE 40", "SERISE 300", "SERISE 500", "SERISE 900C", "SERISE 900X", "SERISE 900", "SAFETY SERISE", "BackFirePrevent",
 	"SPECIAL1", "SPECIAL2", "NIPPLE", "HI-NIPPLE", "MANIFOLD1", "MANIFOLD2", "WORKING LINE"],
 	HydraulicCoupler: ["KCA", "KCN"],
 	SPCoupler: ["KCB"],
 	TSPCoupler: [],
-	CamLock: ["C-TYPE", "B-TYPE", "D-TYPE", "DC-TYPE", "E-TYPE", "F-TYPE", "A-TYPE", "DP-TYPE"]
+	CamLock: ["C", "B", "D", "DC", "E", "F", "A", "DP"]
 };
 
 var Clamps = {
@@ -69,7 +69,7 @@ var Clamps = {
 };
 
 var Etc = {
-	AirGrinder: ["다이그라인더", "4앵글그라인더", "7앵글그라인더(경량)", "7앵글그라인더", "AS용 순정부품"],
+	AirGrinder: ["DieGrinder", "4 Angles Grinder", "7 Angles Grinder Light", "7 Angles Grinder", "Pure Products For AS"],
 	Wielding: [],
 	AirGun: []
 };
