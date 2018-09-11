@@ -1,15 +1,15 @@
 var PneumaticFittings = {
-	OneTouchFittings: ["PC", "PL", "PT", "PST", "PCF", "PWT", "PMF", "PLF", "PUC", "PUL",
+	OneTouchFittings: ["OneTouch Fittings Catalogue", "PC", "PL", "PT", "PST", "PCF", "PWT", "PMF", "PLF", "PUC", "PUL",
 	"PUT", "PY", "PG", "PUG", "PW", "PZA", "PMM", "PPM", "PCP", "PP",
 	"PPF"],
-	SpeedControllers: ["NSE", "NSS", "NSF", "NSL", "NSP"],
-	RotaryJoints: ["NRC", "NRL", "NHRC", "NHRL"],
-	StopFittings: ["SPC", "SPU", "SPL"],
-	CheckValves: ["PCVC", "PCVF", "PCVU"],
-	BallValves: ["BUC", "BUG", "BL", "BC"],
-	HandValves: ["HVSS", "HVFS", "HVFF", "HVSF", "HSV(M)"],
-	TwoTouchFittings: ["TC", "TL", "TUT", "IC", "IL", "IT", "IUC", "IUL", "IUT", "INUT", "IMS", "INS"],
-	Silencers: ["ST", "ST(M)", "SL", "SM", "SBC"]
+	SpeedControllers: ["Speed Controllers Catalogue", "Metal Body Speed Controllers Catalogue", "Pilot Speed Controllers Catalogue", "NSE", "NSS", "NSF", "NSL", "NSP"],
+	RotaryJoints: ["Rotary Joints Catalogue", "NRC", "NRL", "NHRC", "NHRL"],
+	StopFittings: ["Stop Fittings Catalogue", "SPC", "SPU", "SPL"],
+	CheckValves: ["Check Valves Catalogue", "PCVC", "PCVF", "PCVU"],
+	BallValves: ["Ball Valves Catalogue", "BUC", "BUG", "BL", "BC"],
+	HandValves: ["Hand Valves Catalogue", "HVSS", "HVFS", "HVFF", "HVSF", "HSV(M)"],
+	TwoTouchFittings: ["TwoTouch Fittings Catalogue", "Insert Fittings Catalogue_1", "Insert Fittings Catalogue_2", "TC", "TL", "TUT", "IC", "IL", "IT", "IUC", "IUL", "IUT", "INUT", "IMS", "INS"],
+	Silencers: ["Silencers Catalogue", "ST", "ST(M)", "SL", "SM", "SBC"]
 };
 
 //첫번째거 BMC => BMC-R
