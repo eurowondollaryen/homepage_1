@@ -24,6 +24,28 @@
 			}//기계부속은 이름이 파일명으로 하기 난해해서 숫자로 했기 때문에 숫자로 initialization
 			/*위 코드 건드리지 말 것*/
 
+			/*문의사항 이메일 코드*/
+			/*
+			var email = "";
+			email = document.getElementById("emailInput");
+			email.addEventListener("input", function (event) {
+				if (email.validity.typeMismatch) {
+					email.setCustomValidity("I expect an e-mail, darling!");
+				} else {
+					email.setCustomValidity("");
+				}
+			});*/
+			
+			$(function() {
+				$('#emailInput').on('click', function() {
+					if($(this).validity.typeMismatch) {
+						$(this).setCustomValidity("I expect an e-mail");
+					} else {
+						$(this).setCustomValidity("");
+					}
+				});
+			});
+
 			function loadPage(id) {//맨위에 메뉴 누르면 페이지 로드하는 코드
 				var i, tabcontent;
 				tabcontent = document.getElementsByClassName("tabcontent");
@@ -183,6 +205,12 @@
 			div.card {
 				float: left;
 				width: 49.9999%;
+			}
+			form label {
+				margin-top: 0.5rem;
+			}
+			form button {
+				margin-top: 1rem;
 			}
 			@media screen and (max-width: 650px) {
 				div.card {
@@ -353,6 +381,9 @@
 			        </li>
 			        <li class="nav-item">
 			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('roadmap')"><strong>오시는 길</strong></a>
+					</li>
+					<li class="nav-item">
+			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('qna')"><strong>고객문의</strong></a>
 			        </li>
 	        	</ul>
 	      </div>
@@ -613,6 +644,30 @@
 		</div>
 		<!--여기까지 오시는 길 코드-->
 
+		<div class="tabcontent" id="qna">
+	    	<div class="route" id="route">
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>고객문의</strong></p>
+	    	</div>
+	    	<div class="sheild"></div>
+
+		    <div class="container" style="margin-bottom: 1rem;">
+    			<h3 class="page-title"><strong>&nbsp;&nbsp;고객문의</strong></h3>
+				<hr>
+				<form action="mail.php" method="POST" name="question">
+					<label for="emailInput">Email 주소</label>
+					<input type="email" class="form-control" id="emailInput" name="emailInput" placeholder="본인의 E-mail 주소를 입력하세요">
+				
+					<label for="subjectInput">제목</label>
+					<input type="text" class="form-control" id="subjectInput" name="subjectInput" placeholder="문의 제목을 입력하세요.">
+				
+					<label for="contentInput">내용</label>
+					<input type="text" class="form-control" id="contentInput" name="contentInput" placeholder="문의사항을 입력해주세요.">
+					<button class="btn btn-primary" type="submit" id="submitQuestion" style="width:100%;">제출</button>
+				</form>
+		    </div>
+		</div>
+		<!--여기까지 고객문의 코드-->
+
 
 	    <!--여기서부터 footer-->
 		<div class="footer bg-dark">
@@ -626,7 +681,7 @@
 			        	</p>
 			        	<p><br>대표이사 <strong>고정훈</strong> ㅣE-mail <strong>astar2009@hanmail.net</strong><br>전화 <strong>051-319-4878</strong> ㅣ 팩스 <strong>051-319-4876</strong><br>주소 <strong>부산광역시 사상구 괘감로 37, 13동 126,127호 (괘법동, 산업용품유통상가)</strong></p>
 			        	<hr style = "background-color: #888;">
-			        	<div class="copryright-area _copy_menu" style=""> <strong>Copyright</strong> ⓒ 아스타테크</div>
+			        	<div class="copryright-area _copy_menu"> <strong>Copyright</strong> ⓒ 아스타테크</div>
 					</div>
 		        </div>
 		        
@@ -634,7 +689,8 @@
 		          <ul class="list-unstyled text-small">
 		            <li><a class="text-light small" href="#" onClick="loadPage('introduction')">회사소개</a></li>
 		            <li><a class="text-light small" href="#" onClick="loadPage('products')">제품소개</a></li>
-		            <li><a class="text-light small" href="#" onClick="loadPage('roadmap')">오시는 길</a></li>
+					<li><a class="text-light small" href="#" onClick="loadPage('roadmap')">오시는 길</a></li>
+					<li><a class="text-light small" href="#" onClick="loadPage('qna')">고객문의</a></li>
 		          </ul>
 		        </div>
 		      </div>
