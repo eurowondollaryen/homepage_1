@@ -207,7 +207,7 @@
 				width: 49.9999%;
 			}
 			form label {
-				margin-top: 0.5rem;
+				margin-top: 1rem;
 			}
 			form button {
 				margin-top: 1rem;
@@ -217,19 +217,55 @@
 					width: 100%;
 				}
 			}
+			/* IE10+ */
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+				body {
+					font-family: Arial, Helvetica, sans-serif;
+				}
+			}
+			
+			/* IE6,7,9,10 */
+			@media screen and (min-width: 640px), screen\9 {
+				body {
+					font-family: Arial, Helvetica, sans-serif;
+				}
+			}
+			.my-form {
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				outline: none;
+				display: block;
+				width: 100%;
+				padding: 7px;
+    			border: none;
+    			border-bottom: 1px solid #ddd;
+				background: transparent;
+				margin-bottom: 10px;
+				font: 16px Arial, Helvetica, sans-serif;
+				height: 45px;
+			}
+			.my-form:focus {
+				border-bottom: 1px solid #007bff;
+				transition: 0.5s;
+			}
 			.footer_information{ color : white; }
 			.footer_menu1 {	color : white; }
 			.footer_menu2 {	color : white; }
 			.tabcontent {
 				display: none;
 			}
-			.box-shadow {/*product card effect*/
-				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    			transition: 0.3s;
+			.material-shadow{
+				box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+			}
+			/*
+			product card effect. =>그냥 그림자 없앰
+			.box-shadow {
+				box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 			}
 			.box-shadow:hover {
 				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-			}
+			}*/
 			.list-group-flush li {
 				width:100%;
 			}
@@ -315,7 +351,6 @@
 			.sheild{
 				background-image: url("/images/source.jpg");
 				min-height: 200px;
-
 				background-attachment: fixed;
 				background-position: center;
 				background-repeat: no-repeat;
@@ -348,8 +383,8 @@
 				left:0;
 				opacity:0;
 				background-color:rgba(0,0,0,0.5);
-				-webkit-transition:all .4s ease-in-out;
-				transition:all .4s ease-in-out
+				-webkit-transition:all .2s ease-in-out;
+				transition:all .2s ease-in-out
 			}
 			.imageWrap:hover .overlay {
 				opacity:1;
@@ -383,7 +418,7 @@
 			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('roadmap')"><strong>오시는 길</strong></a>
 					</li>
 					<li class="nav-item">
-			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('qna')"><strong>고객문의</strong></a>
+			            <a class="nav-link hvr-underline-from-left" href="#" onClick="loadPage('qna')"><strong>온라인 문의</strong></a>
 			        </li>
 	        	</ul>
 	      </div>
@@ -633,40 +668,39 @@
 	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>오시는 길</strong></p>
 	    	</div>
 	    	<div class="sheild"></div>
-
-		    <div class="container" style="margin-bottom: 1rem;">
-		    	<h3 class="page-title"><strong>&nbsp;&nbsp;오시는 길</strong></h3>
-		    	<hr>
-    			<div id="map" style="width:100%;height:400px"></div>
-    			<hr>
-    			<p class="center"><strong>주소 </strong> 부산광역시 사상구 괘감로 37, 13동 126,127호 (괘법동, 산업용품유통상가)</p>
+			<div class="container" style="margin-bottom: 1rem;">
+				<h3 class="page-title"><strong>&nbsp;&nbsp;오시는 길</strong></h3>
+				<hr>
+				<div class="material-shadow"><div id="map" style="width:100%;height:400px"></div></div>
+				<hr>
+				<p class="center"><strong>주소 </strong> 부산광역시 사상구 괘감로 37, 13동 126,127호 (괘법동, 산업용품유통상가)</p>
 		    </div>
 		</div>
 		<!--여기까지 오시는 길 코드-->
 
 		<div class="tabcontent" id="qna">
 	    	<div class="route" id="route">
-	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>고객문의</strong></p>
+	    		<p>홈<span>&nbsp;>&nbsp;</span><strong>온라인 문의</strong></p>
 	    	</div>
 	    	<div class="sheild"></div>
 
 		    <div class="container" style="margin-bottom: 1rem;">
-    			<h3 class="page-title"><strong>&nbsp;&nbsp;고객문의</strong></h3>
+    			<h3 class="page-title"><strong>&nbsp;&nbsp;온라인 문의</strong></h3>
 				<hr>
 				<form action="mail.php" method="POST" name="question">
 					<label for="emailInput">Email 주소</label>
-					<input type="email" class="form-control" id="emailInput" name="emailInput" placeholder="본인의 E-mail 주소를 입력하세요">
+					<input type="email" class="my-form" id="emailInput" name="emailInput" placeholder="답변을 위해 꼭 본인의 E-mail 주소를 입력해주세요.">
 				
 					<label for="subjectInput">제목</label>
-					<input type="text" class="form-control" id="subjectInput" name="subjectInput" placeholder="문의 제목을 입력하세요.">
+					<input type="text" class="my-form" id="subjectInput" name="subjectInput" placeholder="문의 제목을 입력하세요.">
 				
 					<label for="contentInput">내용</label>
-					<input type="text" class="form-control" id="contentInput" name="contentInput" placeholder="문의사항을 입력해주세요.">
+					<input type="text" class="my-form" rows="5" id="contentInput" name="contentInput" placeholder="문의사항을 입력해주세요.">
 					<button class="btn btn-primary" type="submit" id="submitQuestion" style="width:100%;">제출</button>
 				</form>
 		    </div>
 		</div>
-		<!--여기까지 고객문의 코드-->
+		<!--여기까지 온라인 문의 코드-->
 
 
 	    <!--여기서부터 footer-->
@@ -690,7 +724,7 @@
 		            <li><a class="text-light small" href="#" onClick="loadPage('introduction')">회사소개</a></li>
 		            <li><a class="text-light small" href="#" onClick="loadPage('products')">제품소개</a></li>
 					<li><a class="text-light small" href="#" onClick="loadPage('roadmap')">오시는 길</a></li>
-					<li><a class="text-light small" href="#" onClick="loadPage('qna')">고객문의</a></li>
+					<li><a class="text-light small" href="#" onClick="loadPage('qna')">온라인 문의</a></li>
 		          </ul>
 		        </div>
 		      </div>
